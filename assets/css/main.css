@@ -147,11 +147,12 @@ input[type="number"] {
   padding: 12px;
 }
 .section__title {
-  color: var(--Black, #020105);
-  font-size: 48px;
+  color: var(--Blue-night, #001935);
+  font-family: var(--decor);
+  font-size: 32px;
   font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-weight: 400;
+  line-height: 120%; /* 38.4px */
 }
 .ant-dropdown-menu-item a {
   display: flex;
