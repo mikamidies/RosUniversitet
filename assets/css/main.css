@@ -3,6 +3,8 @@
 :root {
   --decor: "Unbounded";
   --regular: "Golos Text";
+
+  --black: #001935;
 }
 
 ::-webkit-scrollbar {
@@ -177,6 +179,9 @@ input[type="number"] {
 .ant-btn:hover {
   background: transparent;
   color: white;
+}
+.scroll .ant-btn {
+  color: var(--black);
 }
 @media screen and (max-width: 1024px) {
   .section__title {

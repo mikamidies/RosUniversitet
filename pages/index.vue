@@ -1,10 +1,12 @@
 <template>
   <div class="master">
     <HomeHero />
+    <AppForm class="homeApp" />
   </div>
 </template>
 
 <script>
+import AppForm from "~/components/AppForm.vue";
 import HomeHero from "~/components/HomePage/HomeHero.vue";
 
 export default {
@@ -12,6 +14,12 @@ export default {
     HomeHero,
   },
 };
+
+AppForm;
 </script>
 
-<style></style>
+<style scoped>
+.homeApp {
+  padding: 120px 0;
+}
+</style>

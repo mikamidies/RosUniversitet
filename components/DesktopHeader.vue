@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="navbar">
     <div class="container">
       <div class="left">
         <ul class="links">
@@ -51,7 +51,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  async mounted() {
+    function scrollHeader() {
+      const navbar = document.getElementById("navbar");
+      if (this.scrollY >= 50) {
+        navbar.classList.add("scroll");
+      } else {
+        navbar.classList.remove("scroll");
+      }
+    }
+    window.addEventListener("scroll", scrollHeader);
+  },
+};
 </script>
 
 <style scoped>
@@ -61,6 +73,18 @@ export default {};
   left: 0;
   width: 100%;
   z-index: 999;
+  transition: 0.3s;
+}
+.scroll {
+  background: white;
+  border-bottom: 1px solid #ebebeb;
+}
+.scroll .links a,
+.scroll .num {
+  color: var(--black);
+}
+.scroll .container {
+  padding: 16px 0;
 }
 .container {
   display: flex;
@@ -68,6 +92,7 @@ export default {};
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding: 24px 0;
+  transition: 0.3s;
 }
 .links,
 .right {
@@ -87,5 +112,9 @@ export default {};
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 22.4px */
+  transition: 0.3s;
+}
+.scroll .stick {
+  background: var(--black);
 }
 </style>
