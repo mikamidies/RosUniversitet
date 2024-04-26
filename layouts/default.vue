@@ -4,11 +4,15 @@
     <main>
       <nuxt />
     </main>
+    <DesktopFooter />
   </div>
 </template>
 
 <script>
-export default {};
+import DesktopFooter from "~/components/DesktopFooter.vue";
+export default {
+  components: { DesktopFooter },
+};
 </script>
 
 <style></style>

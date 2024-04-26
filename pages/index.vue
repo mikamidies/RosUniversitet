@@ -7,11 +7,13 @@
     <HomeSpecialties />
     <HomeFAQ />
     <AppForm class="greyApp" />
+    <HomeExperts />
   </div>
 </template>
 
 <script>
 import AppForm from "~/components/AppForm.vue";
+import HomeExperts from "~/components/HomePage/HomeExperts.vue";
 import HomeFAQ from "~/components/HomePage/HomeFAQ.vue";
 import HomeHero from "~/components/HomePage/HomeHero.vue";
 import HomeServices from "~/components/HomePage/HomeServices.vue";
@@ -26,6 +28,7 @@ export default {
     HomeSpecialties,
     AppForm,
     HomeFAQ,
+    HomeExperts,
   },
 };
 </script>
