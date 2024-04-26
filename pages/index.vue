@@ -3,6 +3,7 @@
     <HomeHero />
     <AppForm class="homeApp" />
     <HomeServices />
+    <HomeStudients />
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import AppForm from "~/components/AppForm.vue";
 import HomeHero from "~/components/HomePage/HomeHero.vue";
 import HomeServices from "~/components/HomePage/HomeServices.vue";
+import HomeStudients from "~/components/HomePage/HomeStudients.vue";
 
 export default {
   components: {
     HomeHero,
     HomeServices,
+    HomeStudients,
   },
 };
 
