@@ -75,15 +75,19 @@ export default {
   z-index: 999;
   transition: 0.3s;
 }
-.scroll {
+.scroll,
+.white {
   background: white;
   border-bottom: 1px solid #ebebeb;
 }
 .scroll .links a,
-.scroll .num {
+.scroll .num,
+.white .links a,
+.white .num {
   color: var(--black);
 }
-.scroll .container {
+.scroll .container,
+.white .container {
   padding: 16px 0;
 }
 .container {
@@ -114,7 +118,8 @@ export default {
   line-height: 140%; /* 22.4px */
   transition: 0.3s;
 }
-.scroll .stick {
+.scroll .stick,
+.white .stick {
   background: var(--black);
 }
 </style>

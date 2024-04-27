@@ -184,8 +184,18 @@ input[type="number"] {
   background: transparent;
   color: white;
 }
-.scroll .ant-btn {
+.scroll .ant-btn,
+.white .ant-btn {
   color: var(--black);
+}
+.heading {
+  color: var(--Blue-night, #001935);
+  font-family: var(--decor);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 41.6px */
+  text-transform: uppercase;
 }
 @media screen and (max-width: 1024px) {
   .section__title {

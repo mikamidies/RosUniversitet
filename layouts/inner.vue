@@ -1,6 +1,6 @@
 <template>
   <div class="site">
-    <DesktopHeader />
+    <DesktopHeader class="white" />
     <main>
       <nuxt />
     </main>

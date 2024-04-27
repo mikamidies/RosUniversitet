@@ -101,8 +101,15 @@ export default {
   align-items: center;
   gap: 40px;
   padding: 40px 0 20px 0;
-  max-width: 912px;
+  max-width: 936px;
   margin: 0 auto;
+}
+.links a {
+  color: var(--White, #fff);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
 }
 .stick {
   width: 1px;
