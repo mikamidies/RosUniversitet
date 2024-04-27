@@ -3,7 +3,7 @@
     <UniverFace />
     <UniverList />
 
-    <AppForm />
+    <AppForm class="innerForm" />
     <HomeExperts />
   </div>
 </template>
@@ -30,5 +30,8 @@ export default {
 .master {
   padding: 164px 0 0 0;
   background: var(--Apple-Grey, #f5f5f7);
+}
+.innerForm {
+  padding-top: 120px;
 }
 </style>
