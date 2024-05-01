@@ -22,10 +22,10 @@
             <a-dropdown>
               <a-menu slot="overlay">
                 <a-menu-item key="1">
-                  <NuxtLink to="/">Base 1</NuxtLink>
+                  <NuxtLink to="/base/slug">Base 1</NuxtLink>
                 </a-menu-item>
                 <a-menu-item key="2">
-                  <NuxtLink to="/">Base 2</NuxtLink>
+                  <NuxtLink to="/base/slug">Base 2</NuxtLink>
                 </a-menu-item>
               </a-menu>
               <a-button style="margin-left: 8px">

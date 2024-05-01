@@ -4,13 +4,8 @@
       <h4 class="section__title title">Часто задаваемые вопросы</h4>
 
       <div class="items">
-        <div
-          v-for="item in items"
-          :key="item.id"
-          class="dropdown"
-          @click="dropAction(item.id)"
-          :class="{ heightAuto: dropVal == item.id }"
-        >
+        <div v-for="item in items" :key="item.id" class="dropdown" @click="dropAction(item.id)"
+          :class="{ heightAuto: dropVal == item.id }">
           <div class="dropdown-button">
             <h5>
               {{ item.question }}
@@ -74,21 +69,26 @@ export default {
   padding: 0 0 120px 0;
   background: #f5f5f7;
 }
+
 .title {
   text-align: center;
   margin-bottom: 40px;
 }
+
 .items {
   background: white;
   border-radius: 8px;
   overflow: hidden;
 }
+
 .bounceDrop-enter-active {
   animation: bounceDrop-in 0.3s;
 }
+
 .bounceDrop-leave-active {
   animation: bounceDrop-in 0.3s reverse;
 }
+
 @keyframes bounceDrop-in {
   0% {
     transform: translateY(-20%);
@@ -100,21 +100,26 @@ export default {
     opacity: 1;
   }
 }
+
 .dropdown {
   background: var(--white, #fff);
   max-height: 88px;
   overflow: hidden;
   border-bottom: 1px solid #ebebeb;
 }
+
 .dropdown.heightAuto {
   max-height: 100%;
 }
+
 .dropdown-button span {
   transition: 0.4s;
 }
+
 .dropdown-button span.rotate180 {
   transform: rotate(180deg);
 }
+
 .dropdown-button {
   padding: 24px 40px;
   display: flex;
@@ -126,19 +131,24 @@ export default {
   font-weight: 700;
   line-height: 150%;
 }
+
 .dropdown-button h5 {
   color: var(--Blue-night, #001935);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
-  line-height: 130%; /* 31.2px */
+  line-height: 130%;
+  /* 31.2px */
 }
+
 .dropdown.heightAuto .dropdown-button h5 {
   -webkit-line-clamp: 5;
 }
+
 .dropdown.heightAuto .dropdown-button {
   border-bottom: 1px solid #ebebeb;
 }
+
 .dropdown-board {
   padding: 24px 40px;
   color: #010e38;
@@ -149,6 +159,7 @@ export default {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 140%; /* 22.4px */
+  line-height: 140%;
+  /* 22.4px */
 }
 </style>
