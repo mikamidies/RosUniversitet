@@ -95,6 +95,9 @@ meter {
 .container.small {
   max-width: 1007px;
 }
+.container.medium {
+  max-width: 1264px;
+}
 p,
 ul,
 h1,

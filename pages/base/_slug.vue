@@ -71,6 +71,38 @@
                             </p>
                         </div>
 
+                        <div class="quote">
+                            <p>
+                                Он отметил, что наркоз в зависимости от периода действует на центральную нервной системы
+                                по-разному.
+                                Поэтому ученые исследовали влияние динамики наркоза на интенсивность работы обонятельной
+                                системы крысы и
+                                сделали математическое описание процесса.
+                            </p>
+                        </div>
+
+                        <div class="img">
+                            <img src="@/assets/img/univer.jpg" alt="" />
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4 class="par">Информация об университете</h4>
+
+                        <div class="html">
+                            <p>
+                                Санкт-Петербургский государственный Технологический институт был
+                                основан в 1828 году. 6 факультетов, более 68000 выпускников, из
+                                которых 110 были избраны академиками и член-корреспондентами РАН и
+                                отраслевых академий.
+                            </p>
+
+                            <p>
+                                Технологический институт был свидетелем первых научных достижений,
+                                дал России сотни техников, которые двигают прогресс вперед.
+                            </p>
+                        </div>
+
                         <div class="img">
                             <img src="@/assets/img/univer.jpg" alt="" />
                         </div>
@@ -107,6 +139,15 @@ export default {
 <style scoped>
 .master {
     background: var(--Apple-Grey, #F5F5F7);
+}
+
+.grid {
+    position: relative;
+}
+
+aside {
+    position: sticky;
+    top: 80px;
 }
 
 :deep(.chevron svg) {
@@ -162,21 +203,19 @@ aside :deep(.accordion__content li) {
     border-radius: 12px;
     background: var(--White, #fff);
     padding: 64px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .par {
-    margin-bottom: 40px;
     color: var(--Blue-night, #001935);
     font-family: var(--decor);
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    /* 38.4px */
-}
-
-.html {
-    margin-bottom: 56px;
 }
 
 .html p {
@@ -199,5 +238,16 @@ aside :deep(.accordion__content li) {
     height: 665px;
     object-fit: cover;
     border-radius: 4px;
+}
+
+.quote {
+    color: var(--Black, #020105);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    border-radius: 8px;
+    background: var(--Apple-Grey, #F5F5F7);
+    padding: 24px;
 }
 </style>
