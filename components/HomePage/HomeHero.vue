@@ -148,7 +148,7 @@ export default {
   },
   mounted() {
     new Swiper(this.$refs.servSwiper, {
-      slidesPerView: 1,
+      slidesPerView: 1.4,
       centeredSlides: true,
       loop: true,
       spaceBetween: 16,
