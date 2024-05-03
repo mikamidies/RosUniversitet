@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--dark);
+  background: var(--black);
 }
 
 html {

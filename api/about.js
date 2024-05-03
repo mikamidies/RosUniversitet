@@ -4,7 +4,7 @@ export default {
       let res;
 
       if (axios) {
-        res = await axios.get("/university/experts", {
+        res = await axios.get("/about_us/steps", {
           //   ...params,
         });
 
@@ -21,7 +21,7 @@ export default {
       let res;
 
       if (axios) {
-        res = await axios.get("/university/experts", {
+        res = await axios.get("/about_us/roadmap", {
           //   ...params,
         });
 
