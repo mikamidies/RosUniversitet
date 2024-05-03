@@ -108,4 +108,78 @@ button {
   align-items: center;
   gap: 12px;
 }
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .card {
+    padding: 40px;
+  }
+  .vector {
+    width: 100%;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 120%; /* 38.4px */
+  }
+  .sub {
+    font-size: 14px;
+    line-height: 140%; /* 19.6px */
+  }
+  form {
+    gap: 24px;
+  }
+  input {
+    font-size: 14px;
+    line-height: 140%; /* 19.6px */
+  }
+  button {
+    font-size: 14px;
+    line-height: 140%; /* 19.6px */
+    padding: 12px 20px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .card {
+    padding: 24px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 120%; /* 28.8px */
+  }
+  .sub {
+    font-size: 12px;
+    line-height: 140%; /* 16.8px */
+  }
+  form {
+    gap: 16px;
+  }
+  input {
+    font-size: 12px;
+    line-height: 140%; /* 16.8px */
+  }
+  button {
+    font-size: 12px;
+    line-height: 140%; /* 16.8px */
+    padding: 8px 16px;
+  }
+}
 </style>
