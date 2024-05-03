@@ -4,69 +4,25 @@
       <h4 class="heading">Услуги, которые мы предоставляем</h4>
 
       <div class="items">
-        <div class="item">
+        <div class="item" v-for="item in services" :key="item.id">
           <div class="content">
             <p class="name">
-              Мы изучаем ваш запрос: какую задачу нужно решить.
+              {{ item.title }}
             </p>
-            <p class="sub">
-              Россия – это огромная территория и большие расстояния, но даже
-              если вы впервые в стране, добраться до места назначения
-              самостоятельно совсем несложно. Главное заранее спланировать
-              маршрут, как во время поездки в любое незнакомое место.
-            </p>
+            <div class="sub" v-html="item.description"></div>
             <div class="tags">
-              <p class="tag">Узбекистан</p>
-              <p class="tag">Россия</p>
+              <p class="tag" v-for="tag in item.countries" :key="tag.id">
+                {{ tag }}
+              </p>
             </div>
           </div>
 
           <div class="img">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="content">
-            <p class="name">
-              Мы изучаем ваш запрос: какую задачу нужно решить.
-            </p>
-            <p class="sub">
-              Россия – это огромная территория и большие расстояния, но даже
-              если вы впервые в стране, добраться до места назначения
-              самостоятельно совсем несложно. Главное заранее спланировать
-              маршрут, как во время поездки в любое незнакомое место.
-            </p>
-            <div class="tags">
-              <p class="tag">Узбекистан</p>
-              <p class="tag">Россия</p>
-            </div>
-          </div>
-
-          <div class="img">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="content">
-            <p class="name">
-              Мы изучаем ваш запрос: какую задачу нужно решить.
-            </p>
-            <p class="sub">
-              Россия – это огромная территория и большие расстояния, но даже
-              если вы впервые в стране, добраться до места назначения
-              самостоятельно совсем несложно. Главное заранее спланировать
-              маршрут, как во время поездки в любое незнакомое место.
-            </p>
-            <div class="tags">
-              <p class="tag">Узбекистан</p>
-              <p class="tag">Россия</p>
-            </div>
-          </div>
-
-          <div class="img">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
+            <img
+              :src="`https://ros.quvonchbek.uz/${item.images[0]}`"
+              alt=""
+              class="pic"
+            />
           </div>
         </div>
       </div>
@@ -75,8 +31,18 @@
 </template>
 
 <script>
+import servicesApi from "@/api/services.js";
+
 export default {
   layout: "inner",
+
+  async asyncData({ $axios }) {
+    const services = await servicesApi.getServices($axios);
+
+    return {
+      services,
+    };
+  },
 };
 </script>
 

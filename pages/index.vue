@@ -5,7 +5,7 @@
     <HomeServices :services="services" />
     <HomeStudients :students="students" />
     <HomeSpecialties :univers="univers" />
-    <HomeFAQ />
+    <HomeFAQ :faq="faq" />
     <AppForm class="greyApp" />
     <HomeExperts :experts="experts" />
   </div>
@@ -24,6 +24,7 @@ import univerApi from "@/api/univers.js";
 import studentsApi from "@/api/students.js";
 import expertsApi from "@/api/experts.js";
 import servicesApi from "@/api/services.js";
+import faqApi from "@/api/faq.js";
 
 export default {
   components: {
@@ -41,12 +42,14 @@ export default {
     const students = await studentsApi.getStudents($axios);
     const experts = await expertsApi.getExperts($axios);
     const services = await servicesApi.getServices($axios);
+    const faq = await faqApi.getFaq($axios);
 
     return {
       univers,
       students,
       experts,
       services,
+      faq,
     };
   },
 };
