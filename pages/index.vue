@@ -2,12 +2,12 @@
   <div class="master">
     <HomeHero />
     <AppForm class="whiteApp" />
-    <HomeServices />
-    <HomeStudients />
+    <HomeServices :services="services" />
+    <HomeStudients :students="students" />
     <HomeSpecialties :univers="univers" />
     <HomeFAQ />
     <AppForm class="greyApp" />
-    <HomeExperts />
+    <HomeExperts :experts="experts" />
   </div>
 </template>
 
@@ -21,6 +21,9 @@ import HomeSpecialties from "~/components/HomePage/HomeSpecialties.vue";
 import HomeStudients from "~/components/HomePage/HomeStudients.vue";
 
 import univerApi from "@/api/univers.js";
+import studentsApi from "@/api/students.js";
+import expertsApi from "@/api/experts.js";
+import servicesApi from "@/api/services.js";
 
 export default {
   components: {
@@ -35,9 +38,15 @@ export default {
 
   async asyncData({ $axios }) {
     const univers = await univerApi.getUnivers($axios);
+    const students = await studentsApi.getStudents($axios);
+    const experts = await expertsApi.getExperts($axios);
+    const services = await servicesApi.getServices($axios);
 
     return {
       univers,
+      students,
+      experts,
+      services,
     };
   },
 };

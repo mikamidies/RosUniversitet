@@ -19,74 +19,15 @@
       <div class="wrapper">
         <div class="swiper" ref="studSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide" v-for="item in students" :key="item.id">
               <p class="name">
                 <star-icon />
-                Nargiza Axmedova
+                {{ item.name }}
               </p>
 
-              <img src="@/assets/img/stud.jpg" alt="" class="pic" />
+              <img :src="item.media" alt="" class="pic" />
 
-              <p class="status">
-                Muhammad Al-Xorazimiy nomidagi Toshkent Axborot Texnologiyalar
-                Universiteti
-              </p>
-            </div>
-
-            <div class="swiper-slide">
-              <p class="name">
-                <star-icon />
-                Nargiza Axmedova
-              </p>
-
-              <img src="@/assets/img/stud.jpg" alt="" class="pic" />
-
-              <p class="status">
-                Muhammad Al-Xorazimiy nomidagi Toshkent Axborot Texnologiyalar
-                Universiteti
-              </p>
-            </div>
-
-            <div class="swiper-slide">
-              <p class="name">
-                <star-icon />
-                Nargiza Axmedova
-              </p>
-
-              <img src="@/assets/img/stud.jpg" alt="" class="pic" />
-
-              <p class="status">
-                Muhammad Al-Xorazimiy nomidagi Toshkent Axborot Texnologiyalar
-                Universiteti
-              </p>
-            </div>
-
-            <div class="swiper-slide">
-              <p class="name">
-                <star-icon />
-                Nargiza Axmedova
-              </p>
-
-              <img src="@/assets/img/stud.jpg" alt="" class="pic" />
-
-              <p class="status">
-                Muhammad Al-Xorazimiy nomidagi Toshkent Axborot Texnologiyalar
-                Universiteti
-              </p>
-            </div>
-
-            <div class="swiper-slide">
-              <p class="name">
-                <star-icon />
-                Nargiza Axmedova
-              </p>
-
-              <img src="@/assets/img/stud.jpg" alt="" class="pic" />
-
-              <p class="status">
-                Muhammad Al-Xorazimiy nomidagi Toshkent Axborot Texnologiyalar
-                Universiteti
-              </p>
+              <p class="status" v-html="item.description"></p>
             </div>
           </div>
         </div>
@@ -102,6 +43,8 @@ import CallIcon from "../SvgIcons/CallIcon.vue";
 import StarIcon from "../SvgIcons/StarIcon.vue";
 
 export default {
+  props: ["students"],
+
   components: {
     CallIcon,
     StarIcon,

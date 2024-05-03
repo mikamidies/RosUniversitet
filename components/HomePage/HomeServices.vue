@@ -4,216 +4,37 @@
       <div class="header">
         <h4 class="section__title">Наши услуги</h4>
 
-        <NuxtLink class="all" to="/"> Все услуги <arrow-right /> </NuxtLink>
+        <NuxtLink class="all" to="/services">
+          Все услуги <arrow-right />
+        </NuxtLink>
       </div>
     </div>
     <div class="swiper" ref="servSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <div class="swiper-slide" v-for="item in services" :key="item.id">
           <div class="left">
             <div class="content">
               <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
+                {{ item.title }}
               </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
+              <p class="sub" v-html="item.description"></p>
               <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
+                <p class="tag" v-for="tag in item.countries" :key="tag.id">
+                  {{ tag }}
+                </p>
               </div>
             </div>
 
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
+            <NuxtLink to="/services" class="link"
+              >Подробно <arrow-right
+            /></NuxtLink>
           </div>
           <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="left">
-            <div class="content">
-              <p class="name">
-                Мы изучаем ваш запрос: какую задачу нужно решить.
-              </p>
-              <p class="sub">
-                Эта задача может быть уже сформулирована вами. Также мы можем
-                сформулировать ее вместе, исходя из анализа состояния вашего
-                бизнеса.
-              </p>
-              <div class="tags">
-                <p class="tag">Узбекистан</p>
-                <p class="tag">Россия</p>
-              </div>
-            </div>
-
-            <NuxtLink to="/" class="link">Подробно <arrow-right /></NuxtLink>
-          </div>
-          <div class="right">
-            <img src="@/assets/img/serv.jpg" alt="" class="pic" />
+            <img
+              :src="`https://ros.quvonchbek.uz/${item.images[0]}`"
+              alt=""
+              class="pic"
+            />
           </div>
         </div>
       </div>
@@ -227,6 +48,8 @@ import "swiper/swiper-bundle.min.css";
 import ArrowRight from "../SvgIcons/ArrowRight.vue";
 
 export default {
+  props: ["services"],
+
   components: {
     ArrowRight,
   },
@@ -235,7 +58,7 @@ export default {
     new Swiper(this.$refs.servSwiper, {
       slidesPerView: 1.4,
       centeredSlides: true,
-      loop: true,
+      loop: false,
       autoplay: {
         delay: 5000,
       },

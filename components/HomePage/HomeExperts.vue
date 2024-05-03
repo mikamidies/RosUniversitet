@@ -6,75 +6,12 @@
         вуз
       </h4>
       <div class="items">
-        <div class="item">
+        <div class="item" v-for="item in experts" :key="item.id">
           <div class="img">
-            <img src="@/assets/img/stud.jpg" alt="" />
+            <img :src="item.media" alt="" />
           </div>
-          <p class="name">Anva Sanayev</p>
-          <div class="html">
-            <p>
-              Участник 20 международных ассоциации специалистов попрограмн в
-              Европе, ОАЭ и США планированию карьеры NCDA
-            </p>
-            <p>5 лет работы в сфере</p>
-            <p>
-              Более б лет работет в сфере образования за границей образования за
-              рубежон
-            </p>
-            <p>37 успешных кейсов поступления</p>
-            <p>
-              Всегда в курсе нововведений и изменений в програнмах вузов,
-              требованиях кабитуриентам и условиях поступления
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img">
-            <img src="@/assets/img/stud.jpg" alt="" />
-          </div>
-          <p class="name">Anva Sanayev</p>
-          <div class="html">
-            <p>
-              Участник 20 международных ассоциации специалистов попрограмн в
-              Европе, ОАЭ и США планированию карьеры NCDA
-            </p>
-            <p>5 лет работы в сфере</p>
-            <p>
-              Более б лет работет в сфере образования за границей образования за
-              рубежон
-            </p>
-            <p>37 успешных кейсов поступления</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img">
-            <img src="@/assets/img/stud.jpg" alt="" />
-          </div>
-          <p class="name">Anva Sanayev</p>
-          <div class="html">
-            <p>
-              Участник 20 международных ассоциации специалистов попрограмн в
-              Европе, ОАЭ и США планированию карьеры NCDA
-            </p>
-            <p>5 лет работы в сфере</p>
-            <p>
-              Более б лет работет в сфере образования за границей образования за
-              рубежон
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img">
-            <img src="@/assets/img/stud.jpg" alt="" />
-          </div>
-          <p class="name">Anva Sanayev</p>
-          <div class="html">
-            <p>
-              Участник 20 международных ассоциации специалистов попрограмн в
-              Европе, ОАЭ и США планированию карьеры NCDA
-            </p>
-            <p>5 лет работы в сфере</p>
-          </div>
+          <p class="name">{{ item.name }}</p>
+          <div class="html" v-html="item.description"></div>
         </div>
       </div>
     </div>
@@ -82,7 +19,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["experts"],
+};
 </script>
 
 <style scoped>
@@ -121,7 +60,7 @@ export default {};
 .html {
   padding-left: 20px;
 }
-.html p {
+.html :deep(p) {
   color: var(--grey-64, #5d5d5f);
   font-size: 16px;
   font-style: normal;
@@ -130,7 +69,7 @@ export default {};
   margin-bottom: 16px;
   position: relative;
 }
-.html p::after {
+.html :deep(p::after) {
   width: 12px;
   height: 2px;
   background: #f2994a;
