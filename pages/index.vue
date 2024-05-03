@@ -4,7 +4,7 @@
     <AppForm class="whiteApp" />
     <HomeServices />
     <HomeStudients />
-    <HomeSpecialties />
+    <HomeSpecialties :univers="univers" />
     <HomeFAQ />
     <AppForm class="greyApp" />
     <HomeExperts />
@@ -20,6 +20,8 @@ import HomeServices from "~/components/HomePage/HomeServices.vue";
 import HomeSpecialties from "~/components/HomePage/HomeSpecialties.vue";
 import HomeStudients from "~/components/HomePage/HomeStudients.vue";
 
+import univerApi from "@/api/univers.js";
+
 export default {
   components: {
     HomeHero,
@@ -29,6 +31,14 @@ export default {
     AppForm,
     HomeFAQ,
     HomeExperts,
+  },
+
+  async asyncData({ $axios }) {
+    const univers = await univerApi.getUnivers($axios);
+
+    return {
+      univers,
+    };
   },
 };
 </script>

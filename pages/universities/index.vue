@@ -4,93 +4,21 @@
       <h4 class="heading">Вузы и специальности</h4>
 
       <div class="items">
-        <div class="item">
-          <NuxtLink to="/universities/slug">
+        <div class="item" v-for="item in univers" :key="item.id">
+          <NuxtLink :to="`/universities/${item.id}`">
             <div class="img">
               <img src="@/assets/img/univer.jpg" alt="" />
             </div>
             <div class="naming">
-              <img src="@/assets/img/logo/uni-1.svg" alt="" />
+              <img :src="item.logo" alt="" />
               <p class="name">
-                Санкт-петербургский политехнический университет Петра Великого
+                {{ item.title }}
               </p>
             </div>
             <div class="info">
               <div class="count">
                 <studients-icon />
-                24 4302
-              </div>
-
-              <div class="call">
-                Связаться с нами
-                <call-icon />
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
-        <div class="item">
-          <NuxtLink to="/universities/slug">
-            <div class="img">
-              <img src="@/assets/img/univer.jpg" alt="" />
-            </div>
-            <div class="naming">
-              <img src="@/assets/img/logo/uni-1.svg" alt="" />
-              <p class="name">
-                Санкт-петербургский политехнический университет Петра Великого
-              </p>
-            </div>
-            <div class="info">
-              <div class="count">
-                <studients-icon />
-                24 4302
-              </div>
-
-              <div class="call">
-                Связаться с нами
-                <call-icon />
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
-        <div class="item">
-          <NuxtLink to="/universities/slug">
-            <div class="img">
-              <img src="@/assets/img/univer.jpg" alt="" />
-            </div>
-            <div class="naming">
-              <img src="@/assets/img/logo/uni-1.svg" alt="" />
-              <p class="name">
-                Санкт-петербургский политехнический университет Петра Великого
-              </p>
-            </div>
-            <div class="info">
-              <div class="count">
-                <studients-icon />
-                24 4302
-              </div>
-
-              <div class="call">
-                Связаться с нами
-                <call-icon />
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
-        <div class="item">
-          <NuxtLink to="/universities/slug">
-            <div class="img">
-              <img src="@/assets/img/univer.jpg" alt="" />
-            </div>
-            <div class="naming">
-              <img src="@/assets/img/logo/uni-1.svg" alt="" />
-              <p class="name">
-                Санкт-петербургский политехнический университет Петра Великого
-              </p>
-            </div>
-            <div class="info">
-              <div class="count">
-                <studients-icon />
-                24 4302
+                {{ item.students_count }}
               </div>
 
               <div class="call">
@@ -108,9 +36,21 @@
 <script>
 import CallIcon from "~/components/SvgIcons/CallIcon.vue";
 import StudientsIcon from "~/components/SvgIcons/StudientsIcon.vue";
+
+import univerApi from "@/api/univers.js";
+
 export default {
   components: { StudientsIcon, CallIcon },
+
   layout: "inner",
+
+  async asyncData({ $axios }) {
+    const univers = await univerApi.getUnivers($axios);
+
+    return {
+      univers,
+    };
+  },
 };
 </script>
 
