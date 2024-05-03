@@ -370,7 +370,7 @@ video {
 
 @media (max-width: 96em) {
   .wrap {
-    height: 115vh;
+    height: 130vh;
   }
 }
 
