@@ -148,7 +148,7 @@ export default {
   },
   mounted() {
     new Swiper(this.$refs.servSwiper, {
-      slidesPerView: 1,
+      slidesPerView: 1.4,
       centeredSlides: true,
       loop: true,
       spaceBetween: 16,
@@ -370,7 +370,7 @@ video {
 
 @media (max-width: 96em) {
   .wrap {
-    height: 115vh;
+    height: 130vh;
   }
 }
 
