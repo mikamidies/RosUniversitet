@@ -9,25 +9,25 @@
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/">О нас</NuxtLink>
+          <NuxtLink to="/about">О нас</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/">Вузы и специальности</NuxtLink>
+          <NuxtLink to="/universities">Вузы и специальности</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/">Услуги</NuxtLink>
+          <NuxtLink to="/services">Услуги</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/">Контакты</NuxtLink>
+          <NuxtLink to="/contacts">Контакты</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
@@ -35,8 +35,12 @@
         <li>
           <a-dropdown>
             <a-menu slot="overlay">
-              <a-menu-item key="1"> 1st menu item </a-menu-item>
-              <a-menu-item key="2"> 2nd menu item </a-menu-item>
+              <a-menu-item key="1">
+                <NuxtLink to="/base/id">Base 1</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="2">
+                <NuxtLink to="/base/id">Base 2</NuxtLink>
+              </a-menu-item>
             </a-menu>
             <a-button style="margin-left: 8px">
               База знаний <a-icon type="down" />
