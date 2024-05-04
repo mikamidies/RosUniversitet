@@ -11,29 +11,24 @@
     </div>
     <div class="white">
       <div class="container">
-        <div class="item">
-          <h4 class="name">Медицинское направление</h4>
+        <div class="item" v-for="item in univer.faculties" :key="item.id">
+          <h4 class="name">{{ item.title }}</h4>
           <div class="table_wrapper">
             <table>
               <tr>
-                <th>Последовательность наук</th>
+                <th>Направление</th>
+                <th>Уровень</th>
+                <th>Тип обучения</th>
                 <th>Продолжительность курса</th>
                 <th>Стоимость одного года обучения</th>
+                <th></th>
               </tr>
               <tr>
-                <td>Лечебное дело - 1 курс</td>
-                <td>6 лет</td>
-                <td>$ 3000</td>
-              </tr>
-              <tr>
-                <td>Лечебное дело - 1 курс</td>
-                <td>6 лет</td>
-                <td>$ 3000</td>
-              </tr>
-              <tr>
-                <td>Лечебное дело - 1 курс</td>
-                <td>6 лет</td>
-                <td>$ 3000</td>
+                <td>{{ item.direction.title }}</td>
+                <td>{{ item.degree }}</td>
+                <td>{{ item.direction.title }}</td>
+                <td>{{ item.length }} лет</td>
+                <td>{{ item.price }}</td>
               </tr>
             </table>
           </div>

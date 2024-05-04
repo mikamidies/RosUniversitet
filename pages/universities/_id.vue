@@ -41,8 +41,6 @@ export default {
       },
     });
 
-    console.log(univer);
-
     return {
       univer,
       experts,

@@ -13,7 +13,7 @@
               </h4>
             </template>
             <template slot="accordion-content">
-              <img src="@/assets/img/shit.jpg" alt="" class="pic" />
+              <img :src="item.image" alt="" class="pic" />
 
               <div class="html" v-html="item?.description"></div>
             </template>
@@ -35,6 +35,10 @@ export default {
   },
 
   props: ["faq"],
+
+  mounted() {
+    console.log(this.faq);
+  },
 };
 </script>
 

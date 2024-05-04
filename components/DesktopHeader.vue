@@ -56,11 +56,7 @@
                           :key="card?.id"
                         >
                           <NuxtLink :to="localePath(`/base/${card?.id}`)">
-                            <img
-                              src="@/assets/img/univer.jpg"
-                              alt=""
-                              class="pic"
-                            />
+                            <img :src="card?.image" alt="" class="pic" />
                             <p class="naming">
                               <star-icon />
                               {{ card?.title }}
@@ -423,6 +419,7 @@ export default {
   height: 113px;
   border-radius: 4px;
   margin-bottom: 12px;
+  object-fit: cover;
 }
 .naming {
   display: grid;

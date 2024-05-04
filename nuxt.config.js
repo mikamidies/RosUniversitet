@@ -24,7 +24,7 @@ export default {
   modules: ["@nuxtjs/axios", "@nuxtjs/i18n"],
 
   axios: {
-    baseURL: "https://ros.quvonchbek.uz/api",
+    baseURL: process.env.BASE_URL || "https://ros.quvonchbek.uz/api",
   },
 
   build: {

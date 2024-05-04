@@ -96,7 +96,7 @@
     <AboutMap :roadmap="roadmap" />
 
     <AppForm />
-    <HomeExperts class="white" />
+    <HomeExperts :experts="experts" class="white" />
   </div>
 </template>
 
@@ -108,6 +108,7 @@ import HomeExperts from "~/components/HomePage/HomeExperts.vue";
 import StarIcon from "~/components/SvgIcons/StarIcon.vue";
 
 import aboutApi from "@/api/about.js";
+import expertsApi from "@/api/experts.js";
 
 export default {
   components: { StarIcon, AboutStages, AboutMap, AppForm, HomeExperts },
@@ -127,10 +128,17 @@ export default {
         "Accept-Language": i18n.locale,
       },
     });
+    const experts = await expertsApi.getExperts($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
 
     return {
       faq,
       roadmap,
+      experts,
     };
   },
 };

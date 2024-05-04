@@ -7,7 +7,10 @@
         <div class="item" v-for="item in univers" :key="item.id">
           <NuxtLink :to="localePath(`/universities/${item?.id}`)">
             <div class="img">
-              <img src="@/assets/img/univer.jpg" alt="" />
+              <img
+                :src="`https://ros.quvonchbek.uz/${item.images[0]}`"
+                alt=""
+              />
             </div>
             <div class="naming">
               <img :src="item?.logo" alt="" />
