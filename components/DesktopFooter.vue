@@ -61,7 +61,7 @@
         </div>
         <div class="item">
           <p class="sup">Телефон номер</p>
-          <p class="value">+7 (812) 219 56 56 | +7 (964) 385 56 56</p>
+          <p class="value">+7 (812) 219 56 56 <br> +7 (964) 385 56 56</p>
         </div>
         <div class="item">
           <p class="sup">Эл.почта</p>
@@ -133,8 +133,10 @@ export default {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .contacts {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding-bottom: 24px;
 }
@@ -164,5 +166,65 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  .contacts {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .stick {
+    display: none;
+  }
+
+  li:nth-child(even) {
+    display: none;
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    justify-items: center;
+  }
+
+  .links a {
+    font-size: 14px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .links {
+    display: none;
+  }
+  .contacts {
+    grid-template-columns: 1fr;
+  }
+  .bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 }
 </style>
