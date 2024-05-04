@@ -123,4 +123,59 @@ export default {
   height: 50px;
   object-fit: contain;
 }
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .items {
+    grid-template-columns: 1fr;
+  }
+  .top {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .section__title {
+    font-size: 20px;
+  }
+  .name {
+    font-size: 16px;
+  }
+  .call {
+    font-size: 14px;
+  }
+  .count {
+    font-size: 14px;
+  }
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .section__title {
+    font-size: 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
 </style>
