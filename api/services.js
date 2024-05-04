@@ -1,11 +1,11 @@
 export default {
-  async getServices(axios) {
+  async getServices(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/services/services/list", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;

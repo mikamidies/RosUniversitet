@@ -37,12 +37,37 @@ export default {
     HomeExperts,
   },
 
-  async asyncData({ $axios }) {
-    const univers = await univerApi.getUnivers($axios);
-    const students = await studentsApi.getStudents($axios);
-    const experts = await expertsApi.getExperts($axios);
-    const services = await servicesApi.getServices($axios);
-    const faq = await faqApi.getFaq($axios);
+  async asyncData({ $axios, query, i18n }) {
+    const univers = await univerApi.getUnivers($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+    const students = await studentsApi.getStudents($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+    const experts = await expertsApi.getExperts($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+    const services = await servicesApi.getServices($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+    const faq = await faqApi.getFaq($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
 
     return {
       univers,

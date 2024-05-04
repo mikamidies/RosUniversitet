@@ -21,10 +21,10 @@ export default {
 
   buildModules: [],
 
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/i18n"],
 
   axios: {
-    baseURL: process.env.BASE_URL || "https://ros.quvonchbek.uz/api",
+    baseURL: "https://ros.quvonchbek.uz/api",
   },
 
   build: {
@@ -38,6 +38,14 @@ export default {
           encoding: "encoding",
         },
       ];
+    },
+  },
+
+  i18n: {
+    locales: ["ru", "en", "uz"],
+    defaultLocale: "ru",
+    vueI18n: {
+      fallbackLocale: "ru",
     },
   },
 };

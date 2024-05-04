@@ -4,26 +4,26 @@
       <div class="header">
         <h4 class="section__title">Вузы и специальности</h4>
 
-        <NuxtLink to="/universities" class="all">
+        <NuxtLink :to="localePath('/universities')" class="all">
           Все университеты <arrow-right />
         </NuxtLink>
       </div>
 
       <div class="items">
         <div class="item" v-for="item in univers" :key="item.id">
-          <NuxtLink :to="`/universities/${item.id}`">
+          <NuxtLink :to="localePath(`/universities/${item?.id}`)">
             <div class="top">
               <div class="logo">
-                <img :src="item.logo" alt="" />
+                <img :src="item?.logo" alt="" />
               </div>
               <p class="name">
-                {{ item.title }}
+                {{ item?.title }}
               </p>
             </div>
             <div class="bottom">
               <div class="count">
                 <studients-icon />
-                {{ item.students_count }}
+                {{ item?.students_count }}
               </div>
               <div class="call">
                 Связаться с нами

@@ -4,7 +4,7 @@
     <UniverList :univer="univer" />
 
     <AppForm class="innerForm" />
-    <HomeExperts />
+    <HomeExperts :experts="experts" />
   </div>
 </template>
 
@@ -15,6 +15,7 @@ import UniverFace from "~/components/UniverPage/UniverFace.vue";
 import UniverList from "~/components/UniverPage/UniverList.vue";
 
 import univerApi from "@/api/univers.js";
+import expertsApi from "@/api/experts.js";
 
 export default {
   components: {
@@ -29,15 +30,22 @@ export default {
   async asyncData({ $axios, params, query, i18n }) {
     const univer = await univerApi.getUniver(params.id, $axios, {
       ...query,
-      // headers: {
-      //   language: i18n.locale,
-      // },
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+    const experts = await expertsApi.getExperts($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
     });
 
     console.log(univer);
 
     return {
       univer,
+      experts,
     };
   },
 };

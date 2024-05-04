@@ -3,36 +3,38 @@
     <div class="container">
       <ul class="links">
         <li>
-          <NuxtLink to="/">Главная</NuxtLink>
+          <NuxtLink :to="localePath('/')">Главная</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/about">О нас</NuxtLink>
+          <NuxtLink :to="localePath('/about')">О нас</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/universities">Вузы и специальности</NuxtLink>
+          <NuxtLink :to="localePath('/universities')"
+            >Вузы и специальности</NuxtLink
+          >
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/services">Услуги</NuxtLink>
+          <NuxtLink :to="localePath('/services')">Услуги</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink to="/contacts">Контакты</NuxtLink>
+          <NuxtLink :to="localePath('/contacts')">Контакты</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
-        <li>
+        <!-- <li>
           <a-dropdown>
             <a-menu slot="overlay">
               <a-menu-item key="1">
@@ -46,7 +48,7 @@
               База знаний <a-icon type="down" />
             </a-button>
           </a-dropdown>
-        </li>
+        </li> -->
       </ul>
       <div class="logo">
         <img src="@/assets/img/build.png" alt="" />
@@ -61,7 +63,10 @@
         </div>
         <div class="item">
           <p class="sup">Телефон номер</p>
-          <p class="value">+7 (812) 219 56 56 <br> +7 (964) 385 56 56</p>
+          <p class="value">
+            +7 (812) 219 56 56 <br />
+            +7 (964) 385 56 56
+          </p>
         </div>
         <div class="item">
           <p class="sup">Эл.почта</p>
@@ -182,7 +187,6 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
   }
-
 }
 
 /**************************/

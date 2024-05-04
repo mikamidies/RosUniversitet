@@ -9,13 +9,13 @@
             <template slot="accordion-trigger">
               <h4>
                 <span class="index"> {{ index + 1 }} </span>
-                {{ item.title }}
+                {{ item?.title }}
               </h4>
             </template>
             <template slot="accordion-content">
               <img src="@/assets/img/shit.jpg" alt="" class="pic" />
 
-              <div class="html" v-html="item.description"></div>
+              <div class="html" v-html="item?.description"></div>
             </template>
           </AccordionItem>
         </Accordion>

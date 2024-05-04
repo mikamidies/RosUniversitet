@@ -8,10 +8,10 @@
       <div class="items">
         <div class="item" v-for="item in experts" :key="item.id">
           <div class="img">
-            <img :src="item.media" alt="" />
+            <img :src="item?.media" alt="" />
           </div>
-          <p class="name">{{ item.name }}</p>
-          <div class="html" v-html="item.description"></div>
+          <p class="name">{{ item?.name }}</p>
+          <div class="html" v-html="item?.description"></div>
         </div>
       </div>
     </div>

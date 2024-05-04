@@ -1,11 +1,11 @@
 export default {
-  async getFaq(axios) {
+  async getFaq(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/knowledge_base/faq/list", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;

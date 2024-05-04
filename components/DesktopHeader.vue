@@ -4,39 +4,43 @@
       <div class="left">
         <ul class="links">
           <li>
-            <NuxtLink to="/">Главная</NuxtLink>
+            <NuxtLink :to="localePath('/')">Главная</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/about">О нас</NuxtLink>
+            <NuxtLink :to="localePath('/about')">О нас</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/universities">Вузы и специальности</NuxtLink>
+            <NuxtLink :to="localePath('/universities')"
+              >Вузы и специальности</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink to="/services">Услуги</NuxtLink>
+            <NuxtLink :to="localePath('/services')">Услуги</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contacts">Контакты</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">Контакты</NuxtLink>
           </li>
           <li class="modaller">
-            <button class="caller">База знаний <chevron-down /></button>
+            <button class="caller" @click="modalHandle = !modalHandle">
+              База знаний <chevron-down />
+            </button>
 
-            <div class="modal">
-              <div class="space"></div>
+            <div class="modal" :class="{ show: modalHandle == true }">
+              <div class="space" @click="modalHandle = false"></div>
               <div class="container">
                 <div class="body">
                   <div class="up">
                     <h4 class="par">База знаний</h4>
                   </div>
                   <div class="down">
-                    <div class="button">
+                    <div class="buttons">
                       <button
                         @click="handleTab = index"
                         v-for="(item, index) in bases"
-                        :key="item.id"
+                        :key="item?.id"
                         :class="{ active: handleTab == index }"
                       >
-                        {{ item.title }}
+                        {{ item?.title }}
                       </button>
                     </div>
                     <div class="board">
@@ -44,22 +48,24 @@
                         class="items"
                         :class="{ active: handleTab == index }"
                         v-for="(cards, index) in bases"
-                        :key="cards.id"
+                        :key="cards?.id"
                       >
                         <div
                           class="item"
-                          v-for="card in cards.contents"
-                          :key="card.id"
+                          v-for="card in cards?.contents"
+                          :key="card?.id"
                         >
-                          <img
-                            src="@/assets/img/univer.jpg"
-                            alt=""
-                            class="pic"
-                          />
-                          <p class="naming">
-                            <star-icon />
-                            {{ card.title }}
-                          </p>
+                          <NuxtLink :to="localePath(`/base/${card?.id}`)">
+                            <img
+                              src="@/assets/img/univer.jpg"
+                              alt=""
+                              class="pic"
+                            />
+                            <p class="naming">
+                              <star-icon />
+                              {{ card?.title }}
+                            </p>
+                          </NuxtLink>
                         </div>
                       </div>
                     </div>
@@ -76,11 +82,21 @@
         <div class="lang">
           <a-dropdown>
             <a-menu slot="overlay">
-              <a-menu-item key="1"> 1st menu item </a-menu-item>
-              <a-menu-item key="2"> 2nd menu item </a-menu-item>
+              <a-menu-item key="1">
+                <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="2">
+                <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="3">
+                <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
+              </a-menu-item>
             </a-menu>
             <a-button style="margin-left: 8px">
-              Русский <a-icon type="down" />
+              <p class="langer">
+                {{ $i18n.locale }}
+              </p>
+              <a-icon type="down" />
             </a-button>
           </a-dropdown>
         </div>
@@ -98,21 +114,23 @@
       <div v-if="burgerToggle" class="sidebar">
         <ul class="links">
           <li>
-            <NuxtLink to="/">Главная</NuxtLink>
+            <NuxtLink :to="localePath('/')">Главная</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/about">О нас</NuxtLink>
+            <NuxtLink :to="localePath('/about')">О нас</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/universities">Вузы и специальности</NuxtLink>
+            <NuxtLink :to="localePath('/universities')"
+              >Вузы и специальности</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink to="/services">Услуги</NuxtLink>
+            <NuxtLink :to="localePath('/services')">Услуги</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contacts">Контакты</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">Контакты</NuxtLink>
           </li>
-          <li>
+          <!-- <li>
             <a-dropdown>
               <a-menu slot="overlay">
                 <a-menu-item key="1">
@@ -126,10 +144,10 @@
                 База знаний <a-icon type="down" />
               </a-button>
             </a-dropdown>
-          </li>
+          </li> -->
         </ul>
         <a href="+123 45 678 90 00" class="num">+123 45 678 90 00</a>
-        <div class="lang">
+        <!-- <div class="lang">
           <a-dropdown>
             <a-menu slot="overlay">
               <a-menu-item key="1"> 1st menu item </a-menu-item>
@@ -139,7 +157,7 @@
               Русский <a-icon type="down" />
             </a-button>
           </a-dropdown>
-        </div>
+        </div> -->
       </div>
     </transition>
   </div>
@@ -161,14 +179,16 @@ export default {
       bases: [],
       handleTab: 0,
       burgerToggle: false,
+      modalHandle: false,
+      item: "",
     };
   },
 
-  async mounted() {
+  async fetch() {
     this.bases = await baseApi.getBases(this.$axios);
+  },
 
-    console.log(this.bases);
-
+  async mounted() {
     function scrollHeader() {
       const navbar = document.getElementById("navbar");
       if (this.scrollY >= 50) {
@@ -294,15 +314,43 @@ export default {
 .scroll .caller :deep(path) {
   stroke: var(--black);
 }
-
+.langer {
+  text-transform: capitalize;
+}
+.lang :deep(button) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+  transition: 0.4s;
+}
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
   z-index: 1000;
-  display: none;
+}
+.modal .container {
+  padding: 0;
+}
+.space {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.212);
+  z-index: 1;
 }
 .body {
   border-radius: 12px;
@@ -310,6 +358,9 @@ export default {
   width: 100%;
   box-shadow: 0px 4px 16px rgba(17, 17, 26, 0.05),
     0px 8px 32px rgba(17, 17, 26, 0.05);
+  margin-top: 88px;
+  position: relative;
+  z-index: 2;
 }
 .up {
   padding: 32px;

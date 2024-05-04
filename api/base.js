@@ -1,11 +1,11 @@
 export default {
-  async getBases(axios) {
+  async getBases(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/knowledge_base/sections/list", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;
@@ -20,7 +20,7 @@ export default {
     try {
       let res;
 
-      if (axios) {
+      if ((axios, params)) {
         res = await axios.get(`/knowledge_base/sections/${id}`, {
           ...params,
         });

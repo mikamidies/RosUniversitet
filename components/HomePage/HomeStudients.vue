@@ -22,12 +22,12 @@
             <div class="swiper-slide" v-for="item in students" :key="item.id">
               <p class="name">
                 <star-icon />
-                {{ item.name }}
+                {{ item?.name }}
               </p>
 
-              <img :src="item.media" alt="" class="pic" />
+              <img :src="item?.media" alt="" class="pic" />
 
-              <p class="status" v-html="item.description"></p>
+              <p class="status" v-html="item?.description"></p>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default {
         },
         0: {
           slidesPerView: 1,
-        }
+        },
       },
     });
   },

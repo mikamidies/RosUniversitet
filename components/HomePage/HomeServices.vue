@@ -4,7 +4,7 @@
       <div class="header">
         <h4 class="section__title">Наши услуги</h4>
 
-        <NuxtLink class="all" to="/services">
+        <NuxtLink class="all" :to="localePath('/services')">
           Все услуги <arrow-right />
         </NuxtLink>
       </div>
@@ -15,23 +15,23 @@
           <div class="left">
             <div class="content">
               <p class="name">
-                {{ item.title }}
+                {{ item?.title }}
               </p>
-              <p class="sub" v-html="item.description"></p>
+              <p class="sub" v-html="item?.description"></p>
               <div class="tags">
-                <p class="tag" v-for="tag in item.countries" :key="tag.id">
+                <p class="tag" v-for="tag in item?.countries" :key="tag.id">
                   {{ tag }}
                 </p>
               </div>
             </div>
 
-            <NuxtLink to="/services" class="link"
+            <NuxtLink :to="localePath('/services')" class="link"
               >Подробно <arrow-right
             /></NuxtLink>
           </div>
           <div class="right">
             <img
-              :src="`https://ros.quvonchbek.uz/${item.images[0]}`"
+              :src="`https://ros.quvonchbek.uz/${item?.images[0]}`"
               alt=""
               class="pic"
             />

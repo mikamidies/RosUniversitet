@@ -7,10 +7,10 @@
         <Accordion>
           <AccordionItem v-for="item in faq" :key="item.id">
             <template slot="accordion-trigger">
-              <h4>{{ item.title }}</h4>
+              <h4>{{ item?.title }}</h4>
             </template>
             <template slot="accordion-content">
-              <div v-html="item.description"></div>
+              <div v-html="item?.description"></div>
             </template>
           </AccordionItem>
         </Accordion>

@@ -7,9 +7,9 @@
         <div class="item" v-for="item in services" :key="item.id">
           <div class="content">
             <p class="name">
-              {{ item.title }}
+              {{ item?.title }}
             </p>
-            <div class="sub" v-html="item.description"></div>
+            <div class="sub" v-html="item?.description"></div>
             <div class="tags">
               <p class="tag" v-for="tag in item.countries" :key="tag.id">
                 {{ tag }}
@@ -19,7 +19,7 @@
 
           <div class="img">
             <img
-              :src="`https://ros.quvonchbek.uz/${item.images[0]}`"
+              :src="`https://ros.quvonchbek.uz/${item?.images[0]}`"
               alt=""
               class="pic"
             />
@@ -36,8 +36,13 @@ import servicesApi from "@/api/services.js";
 export default {
   layout: "inner",
 
-  async asyncData({ $axios }) {
-    const services = await servicesApi.getServices($axios);
+  async asyncData({ $axios, query, i18n }) {
+    const services = await servicesApi.getServices($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
 
     return {
       services,
@@ -126,7 +131,8 @@ export default {
 /* BELOW 944px (Tablets) */
 /**************************/
 
-@media (max-width: 59em) {}
+@media (max-width: 59em) {
+}
 
 /**************************/
 /* BELOW 704px (Smaller tablets) */

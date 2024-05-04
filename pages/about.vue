@@ -114,9 +114,19 @@ export default {
 
   layout: "inner",
 
-  async asyncData({ $axios }) {
-    const faq = await aboutApi.getFaq($axios);
-    const roadmap = await aboutApi.getRoadmap($axios);
+  async asyncData({ $axios, query, i18n }) {
+    const faq = await aboutApi.getFaq($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+    const roadmap = await aboutApi.getRoadmap($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
 
     return {
       faq,
@@ -237,7 +247,7 @@ export default {
 
   .card .item {
     text-align: center;
-    border-bottom: 0; 
+    border-bottom: 0;
     border-right: 1px solid #ebebeb;
     padding: 0;
   }
@@ -250,7 +260,6 @@ export default {
     display: flex;
     justify-content: center;
   }
-
 }
 
 /**************************/

@@ -1,11 +1,11 @@
 export default {
-  async getFaq(axios) {
+  async getFaq(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/about_us/steps", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;
@@ -16,13 +16,13 @@ export default {
     }
   },
 
-  async getRoadmap(axios) {
+  async getRoadmap(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/about_us/roadmap", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;

@@ -1,11 +1,11 @@
 export default {
-  async getUnivers(axios) {
+  async getUnivers(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/university/university/list", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;

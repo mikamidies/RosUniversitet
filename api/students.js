@@ -1,11 +1,11 @@
 export default {
-  async getStudents(axios) {
+  async getStudents(axios, params) {
     try {
       let res;
 
       if (axios) {
         res = await axios.get("/university/students", {
-          //   ...params,
+          ...params,
         });
 
         return res.data.results;

@@ -5,20 +5,20 @@
 
       <div class="items">
         <div class="item" v-for="item in univers" :key="item.id">
-          <NuxtLink :to="`/universities/${item.id}`">
+          <NuxtLink :to="localePath(`/universities/${item?.id}`)">
             <div class="img">
               <img src="@/assets/img/univer.jpg" alt="" />
             </div>
             <div class="naming">
-              <img :src="item.logo" alt="" />
+              <img :src="item?.logo" alt="" />
               <p class="name">
-                {{ item.title }}
+                {{ item?.title }}
               </p>
             </div>
             <div class="info">
               <div class="count">
                 <studients-icon />
-                {{ item.students_count }}
+                {{ item?.students_count }}
               </div>
 
               <div class="call">
@@ -44,8 +44,13 @@ export default {
 
   layout: "inner",
 
-  async asyncData({ $axios }) {
-    const univers = await univerApi.getUnivers($axios);
+  async asyncData({ $axios, query, i18n }) {
+    const univers = await univerApi.getUnivers($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
 
     return {
       univers,

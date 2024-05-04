@@ -8,17 +8,17 @@
             <Accordion>
               <AccordionItem v-for="item in bases" :key="item.id">
                 <template slot="accordion-trigger">
-                  <h4>{{ item.title }}</h4>
+                  <h4>{{ item?.title }}</h4>
                 </template>
                 <template slot="accordion-content">
                   <ul>
                     <li>
                       <NuxtLink
-                        :to="`/base/${link.id}`"
+                        :to="localePath(`/base/${link.id}`)"
                         v-for="link in item.contents"
                         :key="link.id"
                       >
-                        {{ link.title }}
+                        {{ link?.title }}
                       </NuxtLink>
                     </li>
                   </ul>
@@ -30,9 +30,9 @@
 
         <div class="right">
           <div class="card" v-for="card in base.contents" :key="card.id">
-            <h4 class="par">{{ card.title }}</h4>
+            <h4 class="par">{{ card?.title }}</h4>
 
-            <div class="html" v-html="card.description"></div>
+            <div class="html" v-html="card?.description"></div>
           </div>
         </div>
       </div>
@@ -67,12 +67,10 @@ export default {
     const bases = await baseApi.getBases($axios);
     const base = await baseApi.getBase(params.id, $axios, {
       ...query,
-      // headers: {
-      //   language: i18n.locale,
-      // },
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
     });
-
-    console.log(base);
 
     return {
       bases,
