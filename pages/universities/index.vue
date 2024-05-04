@@ -124,4 +124,56 @@ export default {
   align-items: center;
   gap: 12px;
 }
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .items {
+    grid-template-columns: 1fr;
+  }
+  .naming .name {
+    font-size: 16px;
+  }
+  .call {
+    font-size: 14px;
+  }
+  .count {
+    font-size: 14px;
+  }
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .heading {
+    font-size: 24px;
+  }
+
+  .naming {
+    grid-template-columns: 32px 1fr;
+    align-items: start;
+  }
+
+  .naming .name {
+    font-size: 14px;
+  }
+}
 </style>
