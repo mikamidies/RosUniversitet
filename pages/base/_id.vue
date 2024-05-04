@@ -176,7 +176,7 @@ aside :deep(.accordion__content a) {
 .html :deep(p),
 .html :deep(li) {
   list-style: disc !important;
-  display: flex;
+  /* display: flex; */
   color: var(--grey-64, #5d5d5f);
   font-size: 18px;
   font-style: normal;
@@ -187,8 +187,8 @@ aside :deep(.accordion__content a) {
 
 .card :deep(img) {
   width: 100%;
-  height: 665px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
   border-radius: 4px;
 }
 
@@ -212,5 +212,42 @@ aside :deep(.accordion__content a) {
   border-radius: 8px;
   background: var(--Apple-Grey, #f5f5f7);
   padding: 24px;
+}
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .right {
+    grid-row: 1;
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .card {
+    padding: 40px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .card {
+    padding: 24px;
+  }
+
+  .par {
+    font-size: 24px;
+  }
 }
 </style>
