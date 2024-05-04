@@ -80,4 +80,83 @@ export default {
   object-fit: cover;
   border-radius: 4px;
 }
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  .img img {
+    height: 500px;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  .naming {
+    grid-template-columns: 64px 1fr;
+  }
+  .heading {
+    font-size: 24px;
+  }
+  .card {
+    padding: 40px;
+  }
+  .par {
+    font-size: 24px;
+  }
+  .html :deep(p) {
+    font-size: 16px;
+  }
+  .img img {
+    height: 400px;
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .naming {
+    grid-template-columns: 100px 1fr;
+  }
+  .heading {
+    font-size: 20px;
+  }
+  .card {
+    padding: 32px;
+  }
+  .par {
+    font-size: 20px;
+  }
+  .img img {
+    height: 300px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .heading {
+    font-size: 18px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .par {
+    font-size: 18px;
+  }
+  .html :deep(p) {
+    font-size: 14px;
+  }
+  .img img {
+    height: 200px;
+  }
+}
 </style>
