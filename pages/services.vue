@@ -107,4 +107,72 @@ export default {
 .item:nth-child(even) .content {
   order: 1;
 }
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  .item {
+    padding: 40px;
+    gap: 24px;
+  }
+  .img img {
+    height: 240px;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .item {
+    padding: 24px;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .item:nth-child(odd) .content {
+    order: 1;
+  }
+
+  .heading {
+    font-size: 26px;
+  }
+
+  .img img {
+    height: 200px;
+  }
+  .name {
+    font-size: 20px;
+  }
+  .sub {
+    font-size: 14px;
+  }
+  .tag {
+    font-size: 12px;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  .heading {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .item {
+    padding: 16px;
+    gap: 16px;
+  }
+}
 </style>
