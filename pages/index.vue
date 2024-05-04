@@ -1,6 +1,7 @@
 <template>
   <div class="master">
     <HomeHero />
+    <HomeStages />
     <AppForm class="whiteApp" />
     <HomeServices :services="services" />
     <HomeStudients :students="students" />
@@ -25,6 +26,7 @@ import studentsApi from "@/api/students.js";
 import expertsApi from "@/api/experts.js";
 import servicesApi from "@/api/services.js";
 import faqApi from "@/api/faq.js";
+import HomeStages from "~/components/HomePage/HomeStages.vue";
 
 export default {
   components: {
@@ -35,6 +37,7 @@ export default {
     AppForm,
     HomeFAQ,
     HomeExperts,
+    HomeStages,
   },
 
   async asyncData({ $axios, query, i18n }) {
