@@ -81,6 +81,7 @@ export default {};
   line-height: 140%;
   padding: 16px 24px;
   border-radius: 12px;
+  text-align: center;
   background: var(--White, #fff);
   position: absolute;
   white-space: nowrap;
@@ -105,5 +106,86 @@ export default {};
 .four {
   left: 72.3%;
   top: 208px;
+}
+
+/**************************/
+/* BELOW 1536px (Normal desktops) */
+/**************************/
+
+@media (max-width: 96em) {
+  .board {
+    height: 400px;
+  }
+
+  .piece {
+    font-size: 14px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .piece {
+    text-align: center;
+  }
+}
+
+/**************************/
+/* BELOW 1344px (Smaller desktops) */
+/**************************/
+
+@media (max-width: 84em) {
+  .board {
+    height: 350px;
+  }
+
+  .piece {
+    width: 100px;
+    white-space: normal;
+    padding: 12px 16px;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  .board {
+    height: 300px;
+    overflow-x: auto;
+    grid-template-columns: repeat(7, 120px);
+  }
+
+  .board::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .piece {
+    width: fit-content;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .one {
+    left: 0;
+    top: 40px;
+  }
+
+  .two {
+    left: calc(1.3 * 120px);
+    top: 94px;
+  }
+
+  .three {
+    left: calc(3 * 120px);
+    top: 148px;
+  }
+
+  .four {
+    left: calc(5 * 120px);
+    top: 208px;
+  }
 }
 </style>
