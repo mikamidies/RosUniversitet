@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="container medium">
-      <h4 class="section__title">Наши этапы</h4>
+      <h4 class="section__title">{{$store.state.translations['main.steps-title']}}</h4>
 
       <div class="acc">
         <Accordion>

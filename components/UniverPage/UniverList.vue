@@ -3,9 +3,9 @@
     <div class="grey">
       <div class="container">
         <div class="naming">
-          <h4 class="heading">Список наших факультетов</h4>
+          <h4 class="heading">{{$store.state.translations['universities.faculty_list']}}</h4>
 
-          <p class="count">Всего 6 факультетов.</p>
+          <p class="count">{{$store.state.translations['universities.total']}} {{univer.faculties.length}} {{$store.state.translations['universities.faculties']}}.</p>
         </div>
       </div>
     </div>
@@ -16,18 +16,18 @@
           <div class="table_wrapper">
             <table>
               <tr>
-                <th>Направление</th>
-                <th>Уровень</th>
-                <th>Тип обучения</th>
-                <th>Продолжительность курса</th>
-                <th>Стоимость одного года обучения</th>
+                <th>{{$store.state.translations['universities.direction']}}</th>
+                <th>{{$store.state.translations['universities.level']}}</th>
+                <th>{{$store.state.translations['universities.type_of_study']}}</th>
+                <th>{{$store.state.translations['universities.course_duration']}}</th>
+                <th>{{$store.state.translations['universities.price_year']}}</th>
                 <th></th>
               </tr>
               <tr>
                 <td>{{ item.direction.title }}</td>
                 <td>{{ item.degree }}</td>
                 <td>{{ item.direction.title }}</td>
-                <td>{{ item.length }} лет</td>
+                <td>{{ item.length }} {{$store.state.translations['universities.year']}}</td>
                 <td>{{ item.price }}</td>
               </tr>
             </table>

@@ -3,33 +3,33 @@
     <div class="container">
       <ul class="links">
         <li>
-          <NuxtLink :to="localePath('/')">Главная</NuxtLink>
+          <NuxtLink :to="localePath('/')">{{$store.state.translations['main.home']}}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/about')">О нас</NuxtLink>
+          <NuxtLink :to="localePath('/about')">{{$store.state.translations['main.about']}}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
           <NuxtLink :to="localePath('/universities')"
-            >Вузы и специальности</NuxtLink
+            >{{$store.state.translations['main.universitetsSpec']}}</NuxtLink
           >
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/services')">Услуги</NuxtLink>
+          <NuxtLink :to="localePath('/services')">{{$store.state.translations['main.services']}}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/contacts')">Контакты</NuxtLink>
+          <NuxtLink :to="localePath('/contacts')">{{$store.state.translations['main.contact']}}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
@@ -55,14 +55,14 @@
       </div>
       <div class="contacts">
         <div class="item">
-          <p class="sup">Адрес</p>
+          <p class="sup"> {{$store.state.translations['contacts.address']}}</p>
           <p class="value">
             Лиговский проспект 43-45, 5 этаж, 519 офис, ориентир: Вход между
             Билайном и Мегафоном
           </p>
         </div>
         <div class="item">
-          <p class="sup">Телефон номер</p>
+          <p class="sup">{{$store.state.translations['contacts.number']}}</p>
           <p class="value">
             +7 (812) 219 56 56 <br />
             +7 (964) 385 56 56
@@ -73,7 +73,7 @@
           <p class="value">info@rosuniversitet.com</p>
         </div>
         <div class="item">
-          <p class="sup">Соц сеть</p>
+          <p class="sup">{{$store.state.translations['contacts.social']}}</p>
           <div class="socs">
             <a href="#" class="soc" target="_blank"> <instagram-icon /> </a>
             <a href="#" class="soc" target="_blank"> <facebook-icon /></a>

@@ -1,7 +1,7 @@
 <template>
   <div class="master">
     <div class="container">
-      <h4 class="heading">Вузы и специальности</h4>
+      <h4 class="heading">{{$store.state.translations['main.universitetsSpec']}}</h4>
 
       <div class="items">
         <div class="item" v-for="item in univers" :key="item.id">
@@ -25,7 +25,7 @@
               </div>
 
               <div class="call">
-                Связаться с нами
+                {{$store.state.translations['main.contact-us']}}
                 <call-icon />
               </div>
             </div>

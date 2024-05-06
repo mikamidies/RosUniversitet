@@ -3,16 +3,13 @@
     <div class="container">
       <div class="header">
         <div class="left">
-          <h4 class="section__title">Наши студенты</h4>
+          <h4 class="section__title"> {{$store.state.translations['main.our-students']}}</h4>
           <p class="sub">
-            Россия – это огромная территория и большие расстояния, но даже если
-            вы впервые в стране, добраться до места назначения самостоятельно
-            совсем несложно. Главное заранее спланировать маршрут, как во время
-            поездки в любое незнакомое место.
+            {{$store.state.translations['main.our-students-desc']}}
           </p>
         </div>
         <div class="right">
-          <div class="call">Подать заявку <call-icon /></div>
+          <div class="call">{{$store.state.translations['main.apply-now']}} <call-icon /></div>
         </div>
       </div>
 

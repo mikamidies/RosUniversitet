@@ -10,7 +10,34 @@
 
 <script>
 import DesktopFooter from "~/components/DesktopFooter.vue";
+import translationsApi from "~/api/translations";
+
 export default {
+  computed: {
+    currentLang() {
+      return this.$i18n.locale;
+    },
+  },
+  async fetch() {
+    const translations = await translationsApi.getTranslations(this.$axios, {
+      params: this.$route.query,
+      headers: {
+        "Accept-Language": this.$i18n.locale,
+      },
+    });
+    this.$store.commit("getTranslations", translations.data);
+  },
+  watch: {
+    async currentLang() {
+      const translations = await translationsApi.getTranslations(this.$axios, {
+      params: this.$route.query,
+      headers: {
+        "Accept-Language": this.$i18n.locale,
+      },
+    });
+    this.$store.commit("getTranslations", translations.data);
+    }
+  },
   components: { DesktopFooter },
 };
 </script>

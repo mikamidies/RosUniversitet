@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="container small">
-      <h4 class="section__title title">Часто задаваемые вопросы</h4>
+      <h4 class="section__title title">{{$store.state.translations['main.faq-title']}}</h4>
 
       <div class="items">
         <Accordion>

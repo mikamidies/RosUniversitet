@@ -2,8 +2,8 @@
   <div class="master">
     <div class="container">
       <h4 class="heading">
-        ROSUNIVERSITET <br />
-        это ваш надежный партнер!
+        {{$store.state.translations['main.title']}} <br />
+        {{$store.state.translations['about.heading']}}
       </h4>
 
       <div class="cover">
@@ -12,57 +12,20 @@
 
       <div class="content">
         <div class="left">
-          <h4 class="par">100% наших абитуриентов поступили в желаемые ВУЗы</h4>
-          <div class="card">
-            <p>
-              Специалисты НИТЦ Нейротехнологий Южного федерального университета
-              (ЮФУ) исследовали активность головного мозга крыс во время
-              наркоза. Математическое описание этого процесса позволит ученым
-              повысить точность определения запахов обонятельными биогибридными
-              системами с 60% до 100%. В перспективе такие системы могут
-              применяться в медицине, экологии и в сфере обеспечения
-              безопасности.
-            </p>
-            <p>
-              Биогибридные технологии совмещают перспективные технические
-              разработки и лучшие свойства животных. Ученые ЮФУ разработали
-              обонятельную систему, которая может определять, какое вещество
-              содержится в воздухе.
-            </p>
-            <p>
-              «Идеальным результатом для нас с практической точки зрения, было
-              бы создание управляемых, высокочувствительных, помехоустойчивых и
-              функционирующих 24/7 биогибридных устройств, способных
-              детектировать интересующие заказчика пары веществ в воздухе или
-              почве», — отметил Петр Косенко.
-            </p>
-            <p>
-              Одной из вариаций внедрения таких технологий могут быть
-              кинологические службы. Система будет работать в режиме
-              круглосуточного отслеживания, а нейронная сеть – обрабатывать
-              информацию и давать сигнал о потенциально-опасных веществах,
-              например, взрывчатых или наркотических.
-            </p>
-            <p>
-              Исследование проведено в рамках проекта «Интеллектуальные
-              технологии управления и обработки информации в перспективных
-              роботизированных комплексах и гибридных системах» по программе
-              Минобрнауки России «Приоритет 2030» (нацпроект «Наука и
-              университеты»). Результаты исследования опубликованы в научном
-              журнале «IBRO Neuroscience Reportsthis link is disabled».
-            </p>
+          <h4 class="par">  {{$store.state.translations['about.paragraph']}}</h4>
+          <div class="card" v-html="mainInfo?.description">
           </div>
         </div>
 
         <div class="right">
-          <h4 class="par">Наши статистика</h4>
+          <h4 class="par">{{$store.state.translations['about.statistics']}}</h4>
           <div class="card">
             <div class="item">
               <p class="num">
                 <star-icon />
                 5000
               </p>
-              <p class="sub">Абитуриенты</p>
+              <p class="sub">{{$store.state.translations['about.applicants']}}</p>
             </div>
 
             <div class="item">
@@ -70,7 +33,7 @@
                 <star-icon />
                 5000
               </p>
-              <p class="sub">Абитуриенты</p>
+              <p class="sub">{{$store.state.translations['about.students']}}</p>
             </div>
 
             <div class="item">
@@ -78,7 +41,7 @@
                 <star-icon />
                 15
               </p>
-              <p class="sub">Абитуриенты</p>
+              <p class="sub">{{$store.state.translations['about.branches']}}</p>
             </div>
 
             <div class="item">
@@ -86,7 +49,7 @@
                 <star-icon />
                 100%
               </p>
-              <p class="sub">Абитуриенты</p>
+              <p class="sub">{{$store.state.translations['about.admission']}}</p>
             </div>
           </div>
         </div>
@@ -114,7 +77,14 @@ export default {
   components: { StarIcon, AboutStages, AboutMap, AppForm, HomeExperts },
 
   layout: "inner",
-
+async mounted() {
+  const mainInfo = await aboutApi.getMainInfo(this.$axios, {
+      params: this.$route.query,
+      headers: {
+        "Accept-Language": this.$i18n.locale,
+      },
+    });
+},
   async asyncData({ $axios, query, i18n }) {
     const faq = await aboutApi.getFaq($axios, {
       params: query,
@@ -134,8 +104,14 @@ export default {
         "Accept-Language": i18n.locale,
       },
     });
-
+    const mainInfo = await aboutApi.getMainInfo($axios, {
+      params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
     return {
+      mainInfo,
       faq,
       roadmap,
       experts,

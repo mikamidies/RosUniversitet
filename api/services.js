@@ -15,4 +15,12 @@ export default {
       console.log(e);
     }
   },
+  async postApplication(axios, data) {
+      let res;
+      if (axios) {
+        res = await axios.post("/services/application/create/", data);
+        return res;
+      }
+      return res;
+  },
 };

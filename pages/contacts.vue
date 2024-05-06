@@ -1,7 +1,7 @@
 <template>
   <div class="master">
     <div class="container">
-      <h4 class="heading">Контакты</h4>
+      <h4 class="heading">{{$store.state.translations['main.contact']}}</h4>
 
       <div class="buttons">
         <button
@@ -21,15 +21,14 @@
           :key="index"
           :class="{ active: activeTab == index }"
         >
-          <h4 class="par">Оставаться на связи</h4>
+          <h4 class="par">{{$store.state.translations['contacts.paragraph']}}</h4>
           <p class="sub">
-            Чтобы найти контакты ближайшего вам офиса Rosuniversitet, изучите
-            наши офисы по всему миру
+            {{$store.state.translations['contacts.sub_paragraph']}}
           </p>
 
           <div class="items">
             <div class="item">
-              <div class="name"><call-icon /> Номер телефона</div>
+              <div class="name"><call-icon /> {{$store.state.translations['contacts.number']}}</div>
               <div class="body">
                 <a href="">{{ item.email }}</a>
                 <a href="" v-for="number in item.phone_numbers" :key="number">
@@ -39,7 +38,7 @@
             </div>
 
             <div class="item">
-              <div class="name"><map-icon /> Адрес</div>
+              <div class="name"><map-icon /> {{$store.state.translations['contacts.address']}}</div>
               <div class="body">
                 <p>
                   {{ item.address }}
@@ -48,7 +47,7 @@
             </div>
 
             <div class="item">
-              <div class="name"><socials-icon /> Социальные сети</div>
+              <div class="name"><socials-icon /> {{$store.state.translations['contacts.social']}}</div>
               <div class="body">
                 <div class="socs">
                   <a

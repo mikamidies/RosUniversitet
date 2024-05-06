@@ -6,19 +6,30 @@
 
         <div class="left">
           <h4 class="title">
-            Свяжитесь с нами если у вас есть какие-либо вопросы
+            {{ $store.state.translations["main.form-title"] }}
           </h4>
           <p class="sub">
-            Если у вас есть вопросы оставьте свой номер — мы перезвоним и
-            ответим на все ваши вопросы. Получите бесплатную консультацию
+            {{ $store.state.translations["main.form-desc"] }}
           </p>
         </div>
         <div class="right">
-          <form>
-            <input type="text" placeholder="Имя *" />
-            <input type="text" placeholder="Телефон *" />
+          <form @submit.prevent="postData">
+            <input
+              type="text"
+              v-model="form.name"
+              required
+              :placeholder="$store.state.translations['main.form-name']"
+            />
+            <input
+              type="text"
+              v-model="form.phone"
+              required
+              :placeholder="$store.state.translations['main.form-tel']"
+            />
             <div class="buttons">
-              <button type="submit">Отправить заявку <arrow-right /></button>
+              <button type="submit">
+                {{ $store.state.translations["main.send-app"] }}<arrow-right />
+              </button>
             </div>
           </form>
         </div>
@@ -29,7 +40,31 @@
 
 <script>
 import ArrowRight from "./SvgIcons/ArrowRight.vue";
+import servicesApi from "~/api/services";
 export default {
+  data() {
+    return {
+      form: {
+        name: "",
+        phone: "",
+      },
+    };
+  },
+  methods: {
+    postData() {
+      try {
+        servicesApi.postApplication(this.$axios, this.form);
+      
+        this.$notification["success"]({
+          message: this.$store.state.translations["main.app-message"],
+        });
+        this.form = {
+          name: "",
+          phone: "",
+        };
+      } catch (e) {}
+    },
+  },
   components: { ArrowRight },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="master">
     <div class="container">
-      <h4 class="heading">База знаний</h4>
+      <h4 class="heading">{{$store.state.translations['base.heading']}}</h4>
       <div class="grid">
         <div class="left">
           <aside>

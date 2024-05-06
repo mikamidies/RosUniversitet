@@ -40,7 +40,10 @@ export default {
       ];
     },
   },
-
+ server: {
+   host: 'localhost',
+   port: 8000
+ },
   i18n: {
     locales: ["ru", "en", "uz"],
     defaultLocale: "ru",

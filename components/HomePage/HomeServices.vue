@@ -2,10 +2,10 @@
   <div class="wrap">
     <div class="container">
       <div class="header">
-        <h4 class="section__title">Наши услуги</h4>
+        <h4 class="section__title">{{$store.state.translations['main.our-services']}}</h4>
 
         <NuxtLink class="all" :to="localePath('/services')">
-          Все услуги <arrow-right />
+          {{$store.state.translations['main.all-services']}} <arrow-right />
         </NuxtLink>
       </div>
     </div>
@@ -26,7 +26,7 @@
             </div>
 
             <NuxtLink :to="localePath('/services')" class="link"
-              >Подробно <arrow-right
+              >{{$store.state.translations['main.more']}} <arrow-right
             /></NuxtLink>
           </div>
           <div class="right">

@@ -10,7 +10,7 @@
         </h1>
       </div>
       <div class="card">
-        <h4 class="par">Информация об университете</h4>
+        <h4 class="par">{{$store.state.translations['universities.uni_info']}}</h4>
 
         <div class="html" v-html="univer.description"></div>
 

@@ -1,34 +1,34 @@
 <template>
   <div class="wrap">
     <div class="container">
-      <h4 class="section__title">Дорожная карта</h4>
+      <h4 class="section__title">{{$store.state.translations['about.road_map']}}</h4>
 
       <div class="board">
-        <div class="piece one">Пройди конкурсный отбор</div>
-        <div class="piece two">Узнай о вариантах финансирования</div>
-        <div class="piece three">Собери пакет документов</div>
-        <div class="piece four">Получи приглашение и оформи учебную визу</div>
+        <div class="piece one">{{$store.state.translations['about.map_first']}}</div>
+        <div class="piece two">{{$store.state.translations['about.map_second']}}</div>
+        <div class="piece three">{{$store.state.translations['about.map_third']}}</div>
+        <div class="piece four">{{$store.state.translations['about.map_fourth']}}</div>
 
         <div class="year">
-          <p class="name">2016 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_1']}}</p>
         </div>
         <div class="year">
-          <p class="name">2017 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_2']}}</p>
         </div>
         <div class="year">
-          <p class="name">2018 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_3']}}</p>
         </div>
         <div class="year">
-          <p class="name">2019 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_4']}}</p>
         </div>
         <div class="year">
-          <p class="name">2020 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_5']}}</p>
         </div>
         <div class="year">
-          <p class="name">2021 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_6']}}</p>
         </div>
         <div class="year">
-          <p class="name">2022 - yil</p>
+          <p class="name">{{$store.state.translations['about.year_7']}}</p>
         </div>
       </div>
     </div>

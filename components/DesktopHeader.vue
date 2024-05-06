@@ -4,25 +4,25 @@
       <div class="left">
         <ul class="links">
           <li>
-            <NuxtLink :to="localePath('/')">Главная</NuxtLink>
+            <NuxtLink :to="localePath('/')">{{$store.state.translations['main.home']}}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/about')">О нас</NuxtLink>
+            <NuxtLink :to="localePath('/about')">{{$store.state.translations['main.about']}}</NuxtLink>
           </li>
           <li>
             <NuxtLink :to="localePath('/universities')"
-              >Вузы и специальности</NuxtLink
+              >{{$store.state.translations['main.universitetsSpec']}}</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink :to="localePath('/services')">Услуги</NuxtLink>
+            <NuxtLink :to="localePath('/services')">{{$store.state.translations['main.services']}}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/contacts')">Контакты</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">{{$store.state.translations['main.contact']}}</NuxtLink>
           </li>
           <li class="modaller">
             <button class="caller" @click="modalHandle = !modalHandle">
-              База знаний <chevron-down />
+              {{$store.state.translations['main.base']}} <chevron-down />
             </button>
 
             <div class="modal" :class="{ show: modalHandle == true }">
@@ -30,7 +30,7 @@
               <div class="container">
                 <div class="body">
                   <div class="up">
-                    <h4 class="par">База знаний</h4>
+                    <h4 class="par">{{$store.state.translations['main.base']}}</h4>
                   </div>
                   <div class="down">
                     <div class="buttons">
@@ -110,21 +110,21 @@
       <div v-if="burgerToggle" class="sidebar">
         <ul class="links">
           <li>
-            <NuxtLink :to="localePath('/')">Главная</NuxtLink>
+            <NuxtLink :to="localePath('/')">{{$store.state.translations['main.home']}}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/about')">О нас</NuxtLink>
+            <NuxtLink :to="localePath('/about')">{{$store.state.translations['main.about']}}</NuxtLink>
           </li>
           <li>
             <NuxtLink :to="localePath('/universities')"
-              >Вузы и специальности</NuxtLink
+              >{{$store.state.translations['main.universitetsSpec']}}</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink :to="localePath('/services')">Услуги</NuxtLink>
+            <NuxtLink :to="localePath('/services')">{{$store.state.translations['main.services']}}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/contacts')">Контакты</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">{{$store.state.translations['main.contact']}}</NuxtLink>
           </li>
           <!-- <li>
             <a-dropdown>
@@ -137,7 +137,7 @@
                 </a-menu-item>
               </a-menu>
               <a-button style="margin-left: 8px">
-                База знаний <a-icon type="down" />
+                {{$store.state.translations['main.base']}} <a-icon type="down" />
               </a-button>
             </a-dropdown>
           </li> -->

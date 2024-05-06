@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="container">
-      <h4 class="section__title title">Наши этапы</h4>
+      <h4 class="section__title title">{{$store.state.translations['main.steps-title']}}</h4>
       <div class="items">
         <div class="item">
           <p class="num">1</p>
@@ -9,9 +9,9 @@
             <home-icon />
           </div>
           <p class="name">
-            Подбираем университет, стипендию и программу под ваш запрос
+            {{$store.state.translations['main.step1-title']}}
           </p>
-          <NuxtLink to="/">Подробнo <arrow-right /></NuxtLink>
+          <NuxtLink to="/">{{$store.state.translations['main.more']}} <arrow-right /></NuxtLink>
         </div>
 
         <div class="item">
@@ -19,8 +19,8 @@
           <div class="logo">
             <book-icon />
           </div>
-          <p class="name">Составляем персональные стратегии поступления</p>
-          <NuxtLink to="/">Подробнo <arrow-right /></NuxtLink>
+          <p class="name">  {{$store.state.translations['main.step2-title']}}</p>
+          <NuxtLink to="/">{{$store.state.translations['main.more']}} <arrow-right /></NuxtLink>
         </div>
 
         <div class="item">
@@ -29,9 +29,9 @@
             <cert-icon />
           </div>
           <p class="name">
-            Организуем подачу документов, получение визы и переезд
+            {{$store.state.translations['main.step3-title']}}
           </p>
-          <NuxtLink to="/">Подробнo <arrow-right /></NuxtLink>
+          <NuxtLink to="/">{{$store.state.translations['main.more']}} <arrow-right /></NuxtLink>
         </div>
       </div>
     </div>

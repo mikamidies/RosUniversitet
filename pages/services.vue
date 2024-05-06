@@ -1,7 +1,7 @@
 <template>
   <div class="master">
     <div class="container">
-      <h4 class="heading">Услуги, которые мы предоставляем</h4>
+      <h4 class="heading">{{$store.state.translations['services.heading']}}</h4>
 
       <div class="items">
         <div class="item" v-for="item in services" :key="item.id">

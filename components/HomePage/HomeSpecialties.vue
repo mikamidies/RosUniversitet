@@ -2,10 +2,10 @@
   <div class="wrap">
     <div class="container">
       <div class="header">
-        <h4 class="section__title">Вузы и специальности</h4>
+        <h4 class="section__title">{{$store.state.translations['main.universitetsSpec']}}</h4>
 
         <NuxtLink :to="localePath('/universities')" class="all">
-          Все университеты <arrow-right />
+          {{$store.state.translations['main.all-universitets']}} <arrow-right />
         </NuxtLink>
       </div>
 
@@ -26,7 +26,7 @@
                 {{ item?.students_count }}
               </div>
               <div class="call">
-                Связаться с нами
+                {{$store.state.translations['main.contact-us']}}
                 <call-icon />
               </div>
             </div>

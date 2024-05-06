@@ -2,8 +2,7 @@
   <div class="wrap">
     <div class="container">
       <h4 class="section__title title">
-        Эксперты унверистета, которые помогут вам поступить в любой иностранный
-        вуз
+        {{$store.state.translations['main.help-spec-title']}}
       </h4>
       <div class="items">
         <div class="item" v-for="item in experts" :key="item.id">

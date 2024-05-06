@@ -5,27 +5,25 @@
       <div class="content">
         <div class="logo">
           <img src="@/assets/img/build.png" alt="" />
-          <p>ROSUNIVERSITET</p>
+          <p>{{ $store.state.translations["main.title"] }}</p>
         </div>
-        <h4 class="title">Твой выбор, твоё будущее!</h4>
+        <h4 class="title">{{ $store.state.translations["main.subtitle"] }}</h4>
         <p class="sub">
-          Хочешь стать студентом одного из лучших Российских университетов?
-          Хочешь стать студентом одного из лучших Российских университетов?
-          Хочешь стать студентом одного из лучших Российских университетов?
+          {{ $store.state.translations["main.desc"] }}
         </p>
         <div class="buttons">
           <div class="call">
             <div class="icon">
               <CallIcon />
             </div>
-            Связаться с нами
+            {{ $store.state.translations["main.contact-us"] }}
           </div>
 
           <div class="services">
             <div class="icon">
               <CallIcon />
             </div>
-            Наши услуги
+            {{ $store.state.translations["main.our-services"] }}
           </div>
         </div>
       </div>
@@ -35,11 +33,10 @@
             <div class="pic">
               <StudientIcon />
             </div>
-            <p class="name">Выбрать специальность</p>
+            <p class="name">{{ $store.state.translations["main.hero-c1-title"] }}</p>
           </div>
           <p class="txt">
-            Более 500 направлений государственных университетов на выбор по всей
-            России и Узбекистану.
+            {{ $store.state.translations["main.hero-c1-desc"] }}
           </p>
         </div>
         <div class="card">
@@ -47,11 +44,10 @@
             <div class="pic">
               <DocumentsIcon />
             </div>
-            <p class="name">Подать документы</p>
+            <p class="name">{{ $store.state.translations["main.hero-c2-title"] }}</p>
           </div>
           <p class="txt">
-            В светлое будущее с Rosuniversitet! Заполняйте заявку на сайте, и с
-            вами свяжутся наши специалисты.
+            {{ $store.state.translations["main.hero-c2-desc"] }}
           </p>
         </div>
         <div class="card">
@@ -59,10 +55,10 @@
             <div class="pic">
               <BooksIcon />
             </div>
-            <p class="name">Стать студентом</p>
+            <p class="name">{{ $store.state.translations["main.hero-c3-title"] }}</p>
           </div>
           <p class="txt">
-            Поможем подготовить и подать документы в выбранный вами ВУЗ.
+            {{ $store.state.translations["main.hero-c3-desc"] }}
           </p>
         </div>
         <div class="card">
@@ -70,9 +66,9 @@
             <div class="pic">
               <TrophyIcon />
             </div>
-            <p class="name">Производитель текстиля для гостиниц и дома</p>
+            <p class="name">{{ $store.state.translations["main.hero-c4-title"] }}</p>
           </div>
-          <p class="txt">Мы рады видеть вас в числе партнеров!</p>
+          <p class="txt">{{ $store.state.translations["main.hero-c4-desc"] }}</p>
         </div>
       </div>
       <div class="swiper" ref="servSwiper">
@@ -82,11 +78,10 @@
               <div class="pic">
                 <StudientIcon />
               </div>
-              <p class="name">Выбрать специальность</p>
+              <p class="name">{{ $store.state.translations["main.hero-c4-title"] }}</p>
             </div>
             <p class="txt">
-              Более 500 направлений государственных университетов на выбор по всей
-              России и Узбекистану.
+              {{ $store.state.translations["main.hero-c1-desc"] }}
             </p>
           </div>
           <div class="swiper-slide card">
@@ -94,11 +89,10 @@
               <div class="pic">
                 <DocumentsIcon />
               </div>
-              <p class="name">Подать документы</p>
+              <p class="name">{{ $store.state.translations["main.hero-c2-title"] }}</p>
             </div>
             <p class="txt">
-              В светлое будущее с Rosuniversitet! Заполняйте заявку на сайте, и с
-              вами свяжутся наши специалисты.
+              {{ $store.state.translations["main.hero-c2-desc"] }}
             </p>
           </div>
           <div class="swiper-slide card">
@@ -106,10 +100,10 @@
               <div class="pic">
                 <BooksIcon />
               </div>
-              <p class="name">Стать студентом</p>
+              <p class="name">{{ $store.state.translations["main.hero-c3-title"] }}</p>
             </div>
             <p class="txt">
-              Поможем подготовить и подать документы в выбранный вами ВУЗ.
+              {{ $store.state.translations["main.hero-c3-desc"] }}
             </p>
           </div>
           <div class="swiper-slide card">
@@ -117,9 +111,9 @@
               <div class="pic">
                 <TrophyIcon />
               </div>
-              <p class="name">Производитель текстиля для гостиниц и дома</p>
+              <p class="name">{{ $store.state.translations["main.hero-c4-title"] }}</p>
             </div>
-            <p class="txt">Мы рады видеть вас в числе партнеров!</p>
+            <p class="txt"> {{ $store.state.translations["main.hero-c4-desc"] }}</p>
           </div>
         </div>
       </div>
@@ -440,7 +434,7 @@ video {
     width: 300px;
   }
 
-  .buttons>div {
+  .buttons > div {
     justify-content: center;
     width: 100%;
   }
