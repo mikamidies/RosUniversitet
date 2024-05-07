@@ -12,19 +12,19 @@
           {{ $store.state.translations["main.desc"] }}
         </p>
         <div class="buttons">
-          <div class="call">
+          <button class="call"  @click="openModal">
             <div class="icon">
               <CallIcon />
             </div>
             {{ $store.state.translations["main.contact-us"] }}
-          </div>
+          </button>
 
-          <button class="services" @click="openModal">
+          <nuxt-link :to="localePath('/services')" class="services" >
             <div class="icon">
               <CallIcon />
             </div>
             {{ $store.state.translations["main.our-services"] }}
-          </button>
+          </nuxt-link>
         </div>
       </div>
       <div class="cards">
