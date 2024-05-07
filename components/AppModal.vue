@@ -41,6 +41,7 @@
           <input
             type="text"
             v-model="form.phone"
+            v-mask="'+998 ## ### ## ##'"
             required
             :placeholder="$store.state.translations['main.form-tel']"
           />
