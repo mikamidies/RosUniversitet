@@ -19,12 +19,12 @@
             {{ $store.state.translations["main.contact-us"] }}
           </div>
 
-          <div class="services">
+          <button class="services" @click="openModal">
             <div class="icon">
               <CallIcon />
             </div>
             {{ $store.state.translations["main.our-services"] }}
-          </div>
+          </button>
         </div>
       </div>
       <div class="cards">
@@ -113,11 +113,12 @@
               </div>
               <p class="name">{{ $store.state.translations["main.hero-c4-title"] }}</p>
             </div>
-            <p class="txt"> {{ $store.state.translations["main.hero-c4-desc"] }}</p>
+            <p class="txt">{{ $store.state.translations["main.hero-c4-desc"] }}</p>
           </div>
         </div>
       </div>
     </div>
+    <AppModal ref="appModal" />
   </div>
 </template>
 
@@ -131,7 +132,7 @@ import DocumentsIcon from "../SvgIcons/DocumentsIcon.vue";
 import BooksIcon from "../SvgIcons/BooksIcon.vue";
 import TrophyIcon from "../SvgIcons/TrophyIcon.vue";
 import space from "ant-design-vue/lib/space";
-
+import AppModal from "../AppModal.vue";
 export default {
   components: {
     CallIcon,
@@ -139,6 +140,7 @@ export default {
     DocumentsIcon,
     BooksIcon,
     TrophyIcon,
+    AppModal,
   },
   mounted() {
     new Swiper(this.$refs.servSwiper, {
@@ -156,6 +158,11 @@ export default {
       //   },
       speed: 1000,
     });
+  },
+  methods: {
+    openModal() {
+      this.$refs.appModal.openModal();
+    },
   },
 };
 </script>

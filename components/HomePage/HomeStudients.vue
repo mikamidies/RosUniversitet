@@ -9,7 +9,7 @@
           </p>
         </div>
         <div class="right">
-          <div class="call">{{$store.state.translations['main.apply-now']}} <call-icon /></div>
+          <a href="#application" class="call">{{$store.state.translations['main.apply-now']}} <call-icon /></a>
         </div>
       </div>
 

@@ -20,37 +20,14 @@
         <div class="right">
           <h4 class="par">{{$store.state.translations['about.statistics']}}</h4>
           <div class="card">
-            <div class="item">
+            <div class="item" v-for="statistic in mainInfo?.statistics" :key="statistic?.id">
               <p class="num">
                 <star-icon />
-                5000
+                {{ statistic?.value }}
               </p>
-              <p class="sub">{{$store.state.translations['about.applicants']}}</p>
+              <p class="sub">{{ statistic?.title }}</p>
             </div>
 
-            <div class="item">
-              <p class="num">
-                <star-icon />
-                5000
-              </p>
-              <p class="sub">{{$store.state.translations['about.students']}}</p>
-            </div>
-
-            <div class="item">
-              <p class="num">
-                <star-icon />
-                15
-              </p>
-              <p class="sub">{{$store.state.translations['about.branches']}}</p>
-            </div>
-
-            <div class="item">
-              <p class="num">
-                <star-icon />
-                100%
-              </p>
-              <p class="sub">{{$store.state.translations['about.admission']}}</p>
-            </div>
           </div>
         </div>
       </div>
@@ -110,6 +87,8 @@ async mounted() {
         "Accept-Language": i18n.locale,
       },
     });
+
+    console.log(mainInfo);
     return {
       mainInfo,
       faq,

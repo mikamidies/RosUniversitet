@@ -11,7 +11,7 @@
 <script>
 import DesktopFooter from "~/components/DesktopFooter.vue";
 import translationsApi from "~/api/translations";
-
+import contactsApi from "~/api/contacts";
 export default {
   computed: {
     currentLang() {
@@ -25,6 +25,13 @@ export default {
         "Accept-Language": this.$i18n.locale,
       },
     });
+    const contacts = await contactsApi.getContacts(this.$axios, {
+      params: this.$route.query,
+      headers: {
+        "Accept-Language": this.$i18n.locale,
+      },
+    });
+   this.$store.commit('getSiteInfo',contacts[0])
     this.$store.commit("getTranslations", translations.data);
   },
   watch: {

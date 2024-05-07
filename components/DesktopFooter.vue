@@ -3,33 +3,41 @@
     <div class="container">
       <ul class="links">
         <li>
-          <NuxtLink :to="localePath('/')">{{$store.state.translations['main.home']}}</NuxtLink>
+          <NuxtLink :to="localePath('/')">{{
+            $store.state.translations["main.home"]
+          }}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/about')">{{$store.state.translations['main.about']}}</NuxtLink>
+          <NuxtLink :to="localePath('/about')">{{
+            $store.state.translations["main.about"]
+          }}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/universities')"
-            >{{$store.state.translations['main.universitetsSpec']}}</NuxtLink
-          >
+          <NuxtLink :to="localePath('/universities')">{{
+            $store.state.translations["main.universitetsSpec"]
+          }}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/services')">{{$store.state.translations['main.services']}}</NuxtLink>
+          <NuxtLink :to="localePath('/services')">{{
+            $store.state.translations["main.services"]
+          }}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
         </li>
         <li>
-          <NuxtLink :to="localePath('/contacts')">{{$store.state.translations['main.contact']}}</NuxtLink>
+          <NuxtLink :to="localePath('/contacts')">{{
+            $store.state.translations["main.contact"]
+          }}</NuxtLink>
         </li>
         <li>
           <div class="stick"></div>
@@ -55,34 +63,35 @@
       </div>
       <div class="contacts">
         <div class="item">
-          <p class="sup"> {{$store.state.translations['contacts.address']}}</p>
+          <p class="sup">{{ $store.state.translations["contacts.address"] }}</p>
           <p class="value">
-            Лиговский проспект 43-45, 5 этаж, 519 офис, ориентир: Вход между
-            Билайном и Мегафоном
+          {{contacts?.address}}
           </p>
         </div>
         <div class="item">
-          <p class="sup">{{$store.state.translations['contacts.number']}}</p>
+          <p class="sup">{{ $store.state.translations["contacts.number"] }}</p>
           <p class="value">
-            +7 (812) 219 56 56 <br />
-            +7 (964) 385 56 56
+          <span v-for="number in contacts?.phone_numbers">
+            {{number}} <br />
+          </span>
           </p>
         </div>
         <div class="item">
-          <p class="sup">Эл.почта</p>
-          <p class="value">info@rosuniversitet.com</p>
+          <p class="sup">{{$store.state.translations["contacts.email"]}}</p>
+          <a :href="`mailto:${contacts?.email}`" class="value">{{contacts?.email}}</a>
         </div>
         <div class="item">
-          <p class="sup">{{$store.state.translations['contacts.social']}}</p>
+          <p class="sup">{{ $store.state.translations["contacts.social"] }}</p>
           <div class="socs">
-            <a href="#" class="soc" target="_blank"> <instagram-icon /> </a>
-            <a href="#" class="soc" target="_blank"> <facebook-icon /></a>
-            <a href="#" class="soc" target="_blank"> <telegram-icon /> </a>
+            <a v-for="(messanger,index) in contacts?.social_networks" :href="messanger?.link" class="soc" target="_blank"> 
+            <instagram-icon v-if="messanger.network == 'ig'"/>
+            <facebook-icon v-if="messanger.network == 'fb'"/> 
+            <telegram-icon v-if="messanger.network == 'tg'"/></a>
           </div>
         </div>
       </div>
       <div class="bottom">
-        <p>2024 RosUniversitet @ Все права защищена</p>
+        <p>{{year.getFullYear()}} RosUniversitet @ {{$store.state.translations["main.footer-text"]}}</p>
         <p>by <a href="#" target="_blank">NDC</a></p>
       </div>
     </div>
@@ -93,8 +102,24 @@
 import InstagramIcon from "./SvgIcons/InstagramIcon.vue";
 import FacebookIcon from "./SvgIcons/FacebookIcon.vue";
 import TelegramIcon from "./SvgIcons/TelegramIcon.vue";
-
+import contactsApi from "~/api/contacts";
 export default {
+  data() {
+    return {
+      contacts: {},
+      year: new Date()
+    }
+  },
+   async mounted() {
+    const contacts = await contactsApi.getContacts(this.$axios, {
+      params: this.$route.query,
+      headers: {
+        "Accept-Language": this.$i18n.locale,
+      },
+    });
+   this.$store.commit('getSiteInfo',contacts[0])
+   this.contacts = contacts[0]
+  },
   components: { InstagramIcon, TelegramIcon, FacebookIcon },
 };
 </script>

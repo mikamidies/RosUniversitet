@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="application">
     <div class="container">
       <div class="card">
         <img src="@/assets/img/form.png" class="vector" alt="" />
