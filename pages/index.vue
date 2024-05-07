@@ -71,7 +71,7 @@ export default {
         "Accept-Language": i18n.locale,
       },
     });
-
+console.log("test");
     return {
       univers,
       students,
