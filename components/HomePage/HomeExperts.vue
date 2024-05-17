@@ -27,6 +27,10 @@ export default {
   mounted() {
     new Swiper(this.$refs.expertSwiper, {
       slidesPerView: 4,
+      autoplay: {
+        delay: 5000
+      },
+      speed: 1000,
       spaceBetween: 16,
       breakpoints: {
         1200: {

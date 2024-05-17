@@ -51,6 +51,10 @@ export default {
     new Swiper(this.$refs.studSwiper, {
       slidesPerView: 4,
       spaceBetween: 16,
+      autoplay: {
+        delay: 5000
+      },
+      speed: 1000,
       breakpoints: {
         1200: {
           slidesPerView: 4,
