@@ -15,7 +15,7 @@ export default {
 
   css: ["ant-design-vue/dist/antd.css", "@/assets/css/main.css"],
 
-  plugins: ["@/plugins/antd-ui", { src: "~plugins/v-mask.js", ssr: false },],
+  plugins: ["@/plugins/antd-ui", { src: "~plugins/v-mask.js", ssr: false }, { src: "~plugins/chat.js", ssr: false }],
 
   components: true,
 

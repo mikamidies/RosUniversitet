@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap table_list">
     <div class="grey">
       <div class="container">
         <div class="naming">
@@ -13,24 +13,7 @@
       <div class="container">
         <div class="item" v-for="item in univer.faculties" :key="item.id">
           <h4 class="name">{{ item.title }}</h4>
-          <div class="table_wrapper">
-            <table>
-              <tr>
-                <th>{{$store.state.translations['universities.direction']}}</th>
-                <th>{{$store.state.translations['universities.level']}}</th>
-                <th>{{$store.state.translations['universities.type_of_study']}}</th>
-                <th>{{$store.state.translations['universities.course_duration']}}</th>
-                <th>{{$store.state.translations['universities.price_year']}}</th>
-                <th></th>
-              </tr>
-              <tr>
-                <td>{{ item.direction.title }}</td>
-                <td>{{ item.degree }}</td>
-                <td>{{ item.direction.title }}</td>
-                <td>{{ item.length }} {{$store.state.translations['universities.year']}}</td>
-                <td>{{ item.price }}</td>
-              </tr>
-            </table>
+          <div class="table_wrapper" v-html="item.body">
           </div>
         </div>
       </div>
@@ -44,23 +27,28 @@ export default {
 };
 </script>
 
-<style scoped>
-.naming {
+<style>
+.table_list .naming {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.naming {
+.table_list .naming {
   padding-bottom: 40px;
 }
 
-.white {
+.table_list .white {
   background: white;
   padding: 80px 0;
 }
 
-.name {
+.table_list .table_wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table_list .name {
   color: var(--Blue-night, #001935);
   text-align: center;
   font-size: 24px;
@@ -71,11 +59,28 @@ export default {
   margin-bottom: 24px;
 }
 
-table {
+.table_list table {
   width: 100%;
 }
 
-th {
+.table_list tr:first-child {
+  border: 0;
+  background-color: #F5F5F7;
+}
+
+.table_list tr:first-child td {
+  font-weight: 500;
+}
+
+.table_list tr {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.table_list tr:last-child {
+  border: 0;
+}
+
+.table_list th {
   color: var(--Blue-night, #001935);
   font-size: 12px;
   font-style: normal;
@@ -87,7 +92,7 @@ th {
   background: var(--Apple-Grey, #f5f5f7);
 }
 
-td {
+.table_list td {
   padding: 16px 24px;
   color: var(--grey-80, #353437);
   font-size: 16px;
@@ -97,10 +102,14 @@ td {
   /* 22.4px */
 }
 
-.item {
+.table_list .item {
   padding-bottom: 64px;
   border-bottom: 1px solid #ebebeb;
   margin-bottom: 48px;
+}
+
+.table_list .item:last-child {
+  border-bottom: 0;
 }
 
 /**************************/
@@ -108,13 +117,13 @@ td {
 /**************************/
 
 @media (max-width: 59em) {
-  .naming {
+  .table_list .naming {
     display: grid;
     gap: 24px;
     grid-template-columns: 1fr;
   }
 
-  .item {
+  .table_list .item {
     padding-bottom: 40px;
   }
 }
@@ -124,11 +133,11 @@ td {
 /**************************/
 
 @media (max-width: 44em) {
-  .heading {
+  .table_list .heading {
     font-size: 24px;
   }
 
-  th {
+  .table_list th {
     padding: 12px 16px;
     font-size: 10px;
   }
@@ -139,15 +148,15 @@ td {
 /**************************/
 
 @media (max-width: 34em) {
-  th {
+  .table_list th {
     min-width: 200px;
   }
 
-  .table_wrapper {
+  .table_list .table_wrapper figure {
     overflow-x: auto;
   }
 
-  .table_wrapper::-webkit-scrollbar {
+  .table_list .table_wrapper figure::-webkit-scrollbar {
     height: 4px;
   }
 }
