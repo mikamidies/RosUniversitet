@@ -121,6 +121,7 @@ export default {
 }
 
 .swiper-slide {
+  height: auto;
   border-radius: 12px;
   border: 1px solid var(--grey-8, #ebebeb);
   background: var(--White, #fff);
