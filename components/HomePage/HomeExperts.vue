@@ -54,11 +54,7 @@ export default {
 
 .wrap {
   padding: 80px 0 120px 0;
-}
-
-.items {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
 }
 
 .title {
