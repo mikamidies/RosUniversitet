@@ -1,9 +1,9 @@
 <template>
   <div class="master">
-<HomeHero />
-     <!--    <HomeStages />
+    <HomeHero />
+    <HomeStages />
     <AppForm class="whiteApp" />
-    <HomeServices :services="services" />
+    <!-- <HomeServices :services="services" />
     <HomeStudients :students="students" /> -->
     <HomeSpecialties :univers="univers" />
     <HomeFAQ :faq="faq" />
