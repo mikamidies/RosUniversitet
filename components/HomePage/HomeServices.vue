@@ -19,8 +19,8 @@
               </p>
               <p class="sub" v-html="item?.description"></p>
               <div class="tags">
-                <p class="tag" v-if="item.countries" v-for="tag in item.countries || []" :key="tag.id">
-                  {{ tag }}
+                <p class="tag" v-if="item.countries" >
+               {{item.countries}}
                 </p>
               </div>
             </div>
