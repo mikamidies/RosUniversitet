@@ -51,6 +51,10 @@ export default {
     new Swiper(this.$refs.studSwiper, {
       slidesPerView: 4,
       spaceBetween: 16,
+      autoplay: {
+        delay: 5000
+      },
+      speed: 1000,
       breakpoints: {
         1200: {
           slidesPerView: 4,
@@ -121,6 +125,7 @@ export default {
 }
 
 .swiper-slide {
+  height: auto;
   border-radius: 12px;
   border: 1px solid var(--grey-8, #ebebeb);
   background: var(--White, #fff);
