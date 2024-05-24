@@ -1,6 +1,6 @@
 <template>
   <div class="master">
-    <HomeHero />
+    <!-- <HomeHero />
     <HomeStages />
     <AppForm class="whiteApp" />
     <HomeServices :services="services" />
@@ -8,7 +8,7 @@
     <HomeSpecialties :univers="univers" />
     <HomeFAQ :faq="faq" />
     <AppForm class="greyApp" />
-    <HomeExperts :experts="experts" />
+    <HomeExperts :experts="experts" /> -->
   </div>
 </template>
 
