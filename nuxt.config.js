@@ -21,12 +21,18 @@ export default {
 
   buildModules: [],
 
-  modules: ["@nuxtjs/axios", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/i18n",'@nuxtjs/google-fonts',],
 
   axios: {
     baseURL: process.env.BASE_URL || "https://ros.quvonchbek.uz/api",
   },
-
+  googleFonts: {
+    families: {
+      'Golos Text': [400,500,600,700,800,900],
+      'Unbounded': [200,400,500,600,700,800,900]
+    },
+    display: 'swap'
+  },
   build: {
     babel: {
       compact: true,

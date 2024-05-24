@@ -18,10 +18,13 @@
                 {{ item?.title }}
               </p>
               <p class="sub" v-html="item?.description"></p>
-              <div class="tags">
-                <p class="tag" v-if="item.countries" >
-               {{item.countries}}
-                </p>
+             
+            </div>
+            <div class="content">
+             <div class="tags">
+              <div class="tag" v-for="elem in item.countries || []" :key="elem.id">
+                  {{ elem }}
+                </div>
               </div>
             </div>
 
@@ -55,6 +58,7 @@ export default {
   },
 
   mounted() {
+    console.log(this.services);
     new Swiper(this.$refs.servSwiper, {
       slidesPerView: 1.4,
       centeredSlides: true,

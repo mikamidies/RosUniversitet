@@ -73,7 +73,7 @@
         </ul>
       </div>
       <div class="right">
-        <!-- <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a> -->
+        <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a>
         <div class="stick"></div>
         <div class="lang">
           <a-dropdown>
@@ -142,7 +142,7 @@
             </a-dropdown>
           </li> -->
         </ul>
-        <!-- <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a> -->
+        <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a>
         <!-- <div class="lang">
           <a-dropdown>
             <a-menu slot="overlay">
