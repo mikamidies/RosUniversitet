@@ -1,7 +1,7 @@
 <template>
   <div class="master">
-    <!-- <HomeHero />
-    <HomeStages />
+<HomeHero />
+     <!--    <HomeStages />
     <AppForm class="whiteApp" />
     <HomeServices :services="services" />
     <HomeStudients :students="students" /> -->
