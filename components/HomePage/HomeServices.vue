@@ -9,20 +9,20 @@
         </NuxtLink>
       </div>
     </div>
-    <div class="swiper" ref="servSwiper">
+    <div class="swiper" ref="servSwiper" >
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="item in services" :key="item.id">
           <div class="left">
             <div class="content">
-              <p class="name">
+              <!-- <p class="name">
                 {{ item?.title }}
-              </p>
-              <p class="sub" v-html="item?.description"></p>
+              </p> -->
+              <!-- <p class="sub" v-html="item?.description"></p>
               <div class="tags">
                 <p class="tag" v-for="tag in item.countries || []" :key="tag.id">
                   {{ tag }}
                 </p>
-              </div>
+              </div> -->
             </div>
 
             <NuxtLink :to="localePath('/services')" class="link"
