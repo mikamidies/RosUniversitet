@@ -31,19 +31,19 @@ export default {
         "Accept-Language": this.$i18n.locale,
       },
     });
-   this.$store.commit('getSiteInfo',contacts[0])
+    this.$store.commit("getSiteInfo", contacts[0]);
     this.$store.commit("getTranslations", translations.data);
   },
   watch: {
     async currentLang() {
       const translations = await translationsApi.getTranslations(this.$axios, {
-      params: this.$route.query,
-      headers: {
-        "Accept-Language": this.$i18n.locale,
-      },
-    });
-    this.$store.commit("getTranslations", translations.data);
-    }
+        params: this.$route.query,
+        headers: {
+          "Accept-Language": this.$i18n.locale,
+        },
+      });
+      this.$store.commit("getTranslations", translations.data);
+    },
   },
   components: { DesktopFooter },
 };

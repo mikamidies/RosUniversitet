@@ -41,36 +41,68 @@ export default {
   },
 
   async asyncData({ $axios, query, i18n }) {
-    const univers = await univerApi.getUnivers($axios, {
+    const [univers,students,experts,services,faq] = await Promise.all([
+      univerApi.getUnivers($axios, {
       params: query,
       headers: {
         "Accept-Language": i18n.locale,
       },
-    });
-    const students = await studentsApi.getStudents($axios, {
+    }),
+    studentsApi.getStudents($axios, {
       params: query,
       headers: {
         "Accept-Language": i18n.locale,
       },
-    });
-    const experts = await expertsApi.getExperts($axios, {
+    }),
+    expertsApi.getExperts($axios, {
       params: query,
       headers: {
         "Accept-Language": i18n.locale,
       },
-    });
-    const services = await servicesApi.getServices($axios, {
+    }),
+    servicesApi.getServices($axios, {
       params: query,
       headers: {
         "Accept-Language": i18n.locale,
       },
-    });
-    const faq = await faqApi.getFaq($axios, {
+    }),
+    faqApi.getFaq($axios, {
       params: query,
       headers: {
         "Accept-Language": i18n.locale,
       },
-    });
+    })
+    ])
+    //  const univers = await univerApi.getUnivers($axios, {
+    //   params: query,
+    //   headers: {
+    //     "Accept-Language": i18n.locale,
+    //   },
+    // });
+    // const students = await studentsApi.getStudents($axios, {
+    //   params: query,
+    //   headers: {
+    //     "Accept-Language": i18n.locale,
+    //   },
+    // });
+    // const experts = await expertsApi.getExperts($axios, {
+    //   params: query,
+    //   headers: {
+    //     "Accept-Language": i18n.locale,
+    //   },
+    // });
+    // const services = await servicesApi.getServices($axios, {
+    //   params: query,
+    //   headers: {
+    //     "Accept-Language": i18n.locale,
+    //   },
+    // });
+    // const faq = await faqApi.getFaq($axios, {
+    //   params: query,
+    //   headers: {
+    //     "Accept-Language": i18n.locale,
+    //   },
+    // });
 
     return {
       univers,
