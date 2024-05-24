@@ -11,7 +11,7 @@
     </div>
     <div class="swiper" ref="servSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="item in services" :key="item.id">
+        <!-- <div class="swiper-slide" v-for="item in services" :key="item.id">
           <div class="left">
             <div class="content">
               <p class="name">
@@ -36,7 +36,7 @@
               class="pic"
             />
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
