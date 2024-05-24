@@ -11,8 +11,8 @@
     </div>
     <div class="swiper" ref="servSwiper">
       <div class="swiper-wrapper">
-        <!-- <div class="swiper-slide" v-for="item in services" :key="item.id">
-          <div class="left">
+        <div class="swiper-slide" v-for="item in services" :key="item.id">
+          <!-- <div class="left">
             <div class="content">
               <p class="name">
                 {{ item?.title }}
@@ -28,7 +28,7 @@
             <NuxtLink :to="localePath('/services')" class="link"
               >{{$store.state.translations['main.more']}} <arrow-right
             /></NuxtLink>
-          </div>
+          </div> -->
           <div class="right">
             <img
               :src="`https://ros.quvonchbek.uz/${item?.images[0]}`"
@@ -36,7 +36,7 @@
               class="pic"
             />
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
