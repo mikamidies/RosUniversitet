@@ -58,7 +58,6 @@ export default {
   },
 
   mounted() {
-    console.log(this.services);
     new Swiper(this.$refs.servSwiper, {
       slidesPerView: 1.4,
       centeredSlides: true,

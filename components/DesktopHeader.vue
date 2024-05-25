@@ -55,7 +55,7 @@
                           v-for="card in cards?.contents"
                           :key="card?.id"
                         >
-                          <NuxtLink :to="localePath(`/base/${card?.id}`)">
+                          <NuxtLink @click="modalHandle = false" :to="localePath(`/base/${card?.id}`)">
                             <img :src="card?.image" alt="" class="pic" />
                             <p class="naming">
                               <star-icon />

@@ -87,8 +87,7 @@ async mounted() {
         "Accept-Language": i18n.locale,
       },
     });
-
-    console.log(mainInfo);
+    
     return {
       mainInfo,
       faq,
