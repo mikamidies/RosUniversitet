@@ -23,7 +23,6 @@ export default {
         res = await axios.get("/about_us/main_info", {
           ...params,
         });
-console.log(res);
         return res.data;
       }
       return res;

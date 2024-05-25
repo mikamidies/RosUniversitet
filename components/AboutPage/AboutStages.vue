@@ -34,11 +34,7 @@ export default {
     AccordionItem,
   },
 
-  props: ["faq"],
-
-  mounted() {
-    console.log(this.faq);
-  },
+  props: ["faq"]
 };
 </script>
 
