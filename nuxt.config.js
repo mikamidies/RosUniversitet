@@ -1,4 +1,4 @@
-export default {
+  export default {
   head: {
     title: "Rosuniversitet",
     htmlAttrs: {
@@ -24,7 +24,7 @@ export default {
   modules: ["@nuxtjs/axios", "@nuxtjs/i18n",'@nuxtjs/google-fonts',],
 
   axios: {
-    baseURL: process.env.BASE_URL || "https://ros.quvonchbek.uz/api",
+    baseURL: process.env.BASE_URL || "https://admin.rosuniversitet.ru/api",
   },
   googleFonts: {
     families: {

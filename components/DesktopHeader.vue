@@ -198,6 +198,7 @@ export default {
   watch: {
     $route: function () {
       this.burgerToggle = false;
+      this.modalHandle = false
     },
   },
 };
