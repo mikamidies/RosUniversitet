@@ -8,7 +8,7 @@ export default {
           ...params,
         });
 
-        return res.data.results;
+        return res.data;
       }
       return res;
     } catch (e) {
