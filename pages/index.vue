@@ -5,7 +5,7 @@
     <AppForm class="whiteApp" />
     <HomeServices :services="services" />
     <HomeStudients :students="students" />
-    <HomeSpecialties :univers="univers" />
+    <HomeSpecialties :univers="univers.slice(0, 12)" />
     <HomeFAQ :faq="faq" />
     <AppForm class="greyApp" />
     <HomeExperts :experts="experts" />
