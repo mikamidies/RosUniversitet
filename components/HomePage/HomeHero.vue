@@ -1,6 +1,9 @@
 <template>
   <div class="wrap">
-    <video muted loop autoplay playsinline src="/video6mb.mp4"></video>
+    <!-- <video muted loop autoplay playsinline :src="videoUrl"></video> -->
+    <div class="video_wrapper">
+      <iframe :src="videoUrl" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
     <div class="container big">
       <div class="content">
         <div class="logo">
@@ -131,7 +134,6 @@ import StudientIcon from "../SvgIcons/StudientIcon.vue";
 import DocumentsIcon from "../SvgIcons/DocumentsIcon.vue";
 import BooksIcon from "../SvgIcons/BooksIcon.vue";
 import TrophyIcon from "../SvgIcons/TrophyIcon.vue";
-import space from "ant-design-vue/lib/space";
 import AppModal from "../AppModal.vue";
 export default {
   components: {
@@ -142,6 +144,7 @@ export default {
     TrophyIcon,
     AppModal,
   },
+  props: ['videoUrl'],
   mounted() {
     new Swiper(this.$refs.servSwiper, {
       slidesPerView: 1.4,
@@ -171,6 +174,7 @@ export default {
 .wrap {
   padding: 126px 0 40px 0;
   height: 100vh;
+  width: 100%;
   position: relative;
 }
 
@@ -185,12 +189,22 @@ export default {
   position: absolute;
 }
 
-video {
-  position: absolute;
+.video_wrapper {
+  height: 100%;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
 }
@@ -383,6 +397,11 @@ video {
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  iframe {
+    width: 200%;
+    height: 200%;
+  }
 }
 
 /**************************/
@@ -392,6 +411,11 @@ video {
 @media (max-width: 59em) {
   .name {
     font-size: 18px;
+  }
+
+  iframe {
+    width: 300%;
+    height: 300%;
   }
 }
 
@@ -406,6 +430,11 @@ video {
 
   .txt {
     font-size: 14px;
+  }
+
+  iframe {
+    width: 350%;
+    height: 350%;
   }
 }
 
@@ -444,6 +473,11 @@ video {
   .buttons > div {
     justify-content: center;
     width: 100%;
+  }
+
+  iframe {
+    width: 500%;
+    height: 500%;
   }
 }
 </style>
