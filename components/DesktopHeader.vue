@@ -1,6 +1,7 @@
 <template>
   <div class="wrap" id="navbar">
     <div class="container">
+
       <div class="left">
         <ul class="links">
           <li>
@@ -97,6 +98,10 @@
           </a-dropdown>
         </div>
       </div>
+      <div @click="localePath('/')" class="logo">
+        <img src="~/assets/img/logo/logo.png" alt="logo">
+        <img src="~/assets/img/build.png" alt="logo">
+      </div>
       <div class="burger">
         <input v-model="burgerToggle" type="checkbox" id="checkbox" />
         <label for="checkbox" class="toggle">
@@ -177,6 +182,7 @@ export default {
       burgerToggle: false,
       modalHandle: false,
       item: "",
+      scrolled: false
     };
   },
 
@@ -437,7 +443,36 @@ export default {
   border-bottom: 0;
 }
 
-.burger {
+.logo img:first-child {
+  display: none;
+}
+
+.logo img:last-child {
+  display: block;
+}
+
+.white .logo img:first-child {
+  display: block;
+}
+
+.white .logo img:last-child {
+  display: none;
+}
+
+
+.scroll .logo img:first-child {
+  display: block;
+}
+
+.scroll .logo img:last-child {
+  display: none;
+}
+
+.logo {
+  width: 120px;
+}
+
+.burger, .logo {
   display: none;
 }
 
@@ -567,9 +602,12 @@ export default {
 @media (max-width: 46em) {
   .container {
     padding: 24px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row
   }
 
-  .burger {
+  .burger, .logo {
     display: block;
   }
 
