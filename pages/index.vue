@@ -1,6 +1,6 @@
 <template>
   <div class="master">
-    <HomeHero />
+    <HomeHero :videoUrl="video.media_url" />
     <HomeStages />
     <AppForm class="whiteApp" />
     <HomeServices :services="services" />
@@ -22,6 +22,7 @@ import HomeSpecialties from "~/components/HomePage/HomeSpecialties.vue";
 import HomeStudients from "~/components/HomePage/HomeStudients.vue";
 
 import univerApi from "@/api/univers.js";
+import videoApi from "@/api/video.js";
 import studentsApi from "@/api/students.js";
 import expertsApi from "@/api/experts.js";
 import servicesApi from "@/api/services.js";
@@ -41,7 +42,7 @@ export default {
   },
 
   async asyncData({ $axios, query, i18n }) {
-    const [univers,students,experts,services,faq] = await Promise.all([
+    const [univers,students,experts,services,faq,video] = await Promise.all([
       univerApi.getUnivers($axios, {
       params: query,
       headers: {
@@ -68,6 +69,11 @@ export default {
     }),
     faqApi.getFaq($axios, {
       params: query,
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    }),
+    videoApi.getVideo($axios, {
       headers: {
         "Accept-Language": i18n.locale,
       },
@@ -110,6 +116,7 @@ export default {
       experts,
       services,
       faq,
+      video
     };
   },
 
