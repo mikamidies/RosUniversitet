@@ -65,6 +65,9 @@ export default {
 }
 .item {
   position: relative;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
   border-radius: 24px;
   background: var(--White, #fff);
   padding: 24px;
@@ -90,6 +93,7 @@ export default {
   margin-bottom: 24px;
 }
 .name {
+  flex: auto;
   color: var(--Blue-night, #001935);
   font-size: 20px;
   font-style: normal;

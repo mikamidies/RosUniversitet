@@ -92,7 +92,7 @@
       </div>
       <div class="bottom">
         <p>{{year.getFullYear()}} RosUniversitet @ {{$store.state.translations["main.footer-text"]}}</p>
-        <p>by <a href="#" target="_blank">NDC</a></p>
+        <p>by <a href="https://ndc.uz" target="_blank">NDC</a></p>
       </div>
     </div>
   </div>
