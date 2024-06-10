@@ -15,7 +15,7 @@
         <div class="html" v-html="univer.description"></div>
 
         <div class="img">
-          <img :src="`https://ros.quvonchbek.uz/${univer.images[0]}`" alt="" />
+          <img :src="`https://admin.rosuniversitet.ru${univer.images[0]}`" alt="" />
         </div>
       </div>
     </div>

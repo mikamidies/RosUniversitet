@@ -8,7 +8,7 @@
           <NuxtLink :to="localePath(`/universities/${item?.id}`)">
             <div class="img">
               <img
-                :src="`https://ros.quvonchbek.uz/${item.images[0]}`"
+                :src="`https://admin.rosuniversitet.ru${item.images[0]}`"
                 alt=""
               />
             </div>
