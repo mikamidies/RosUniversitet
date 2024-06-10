@@ -110,7 +110,7 @@ export default {
       year: new Date()
     }
   },
-   async mounted() {
+  async mounted() {
     const contacts = await contactsApi.getContacts(this.$axios, {
       params: this.$route.query,
       headers: {
