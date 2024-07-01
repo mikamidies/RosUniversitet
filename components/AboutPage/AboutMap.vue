@@ -2,12 +2,8 @@
   <div class="wrap">
     <div class="container">
       <h4 class="section__title">{{$store.state.translations['about.road_map']}}</h4>
-
       <div class="board">
-        <div class="piece one">{{$store.state.translations['about.map_first']}}</div>
-        <div class="piece two">{{$store.state.translations['about.map_second']}}</div>
-        <div class="piece three">{{$store.state.translations['about.map_third']}}</div>
-        <div class="piece four">{{$store.state.translations['about.map_fourth']}}</div>
+        <div v-for="(road, idx) in roadmap" :key="road.id" :class="`piece_${idx+1}`" class="piece">{{ road.title }}</div>
 
         <div class="year">
           <p class="name">{{$store.state.translations['about.year_1']}}</p>
@@ -36,7 +32,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['roadmap']
+};
 </script>
 
 <style scoped>
@@ -88,24 +86,29 @@ export default {};
   min-width: 25%;
 }
 
-.one {
-  left: 0;
-  top: 40px;
+.piece_1 {
+  left: 0%;
+  top: 5px;
 }
 
-.two {
-  left: 25%;
-  top: 94px;
+.piece_2 {
+  left: 15%;
+  top: 65px;
 }
 
-.three {
-  left: 50%;
-  top: 148px;
+.piece_3 {
+  left: 35%;
+  top: 125px;
 }
 
-.four {
-  left: 72.3%;
-  top: 208px;
+.piece_4 {
+  left: 55%;
+  top: 185px;
+}
+
+.piece_5 {
+  left: 75%;
+  top: 245px;
 }
 
 /**************************/
@@ -168,24 +171,29 @@ export default {};
     font-size: 12px;
   }
 
-  .one {
+  .piece_1 {
     left: 0;
-    top: 40px;
+    top: 10px;
   }
 
-  .two {
+  .piece_2 {
     left: calc(1.3 * 120px);
-    top: 94px;
+    top: 60px;
   }
 
-  .three {
-    left: calc(3 * 120px);
-    top: 148px;
+  .piece_3 {
+    left: calc(2.4 * 120px);
+    top: 110px;
   }
 
-  .four {
-    left: calc(5 * 120px);
-    top: 208px;
+  .piece_4 {
+    left: calc(3.8 * 120px);
+    top: 160px;
+  }
+
+  .piece_5 {
+    left: calc(5.4 * 120px);
+    top: 210px;
   }
 }
 </style>
