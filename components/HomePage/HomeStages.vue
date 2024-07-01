@@ -11,7 +11,6 @@
           <p class="name">
             {{$store.state.translations['main.step1-title']}}
           </p>
-          <NuxtLink to="/">{{$store.state.translations['main.more']}} <arrow-right /></NuxtLink>
         </div>
 
         <div class="item">
@@ -20,7 +19,6 @@
             <book-icon />
           </div>
           <p class="name">  {{$store.state.translations['main.step2-title']}}</p>
-          <NuxtLink to="/">{{$store.state.translations['main.more']}} <arrow-right /></NuxtLink>
         </div>
 
         <div class="item">
@@ -31,7 +29,6 @@
           <p class="name">
             {{$store.state.translations['main.step3-title']}}
           </p>
-          <NuxtLink to="/">{{$store.state.translations['main.more']}} <arrow-right /></NuxtLink>
         </div>
       </div>
     </div>

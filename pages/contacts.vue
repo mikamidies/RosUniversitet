@@ -5,7 +5,7 @@
 
       <div class="buttons">
         <button
-          v-for="(button, index) in contacts"
+          v-for="(button, index) in [{ country: $store.state.translations['countries.uz'] }, { country: $store.state.translations['countries.ru'] }]"
           :key="index"
           @click="activeTab = index"
           :class="{ active: activeTab == index }"
@@ -13,13 +13,12 @@
           {{ button.country }}
         </button>
       </div>
-
       <div class="tabs">
         <div
           class="tab"
           v-for="(item, index) in contacts"
           :key="index"
-          :class="{ active: activeTab == index }"
+          :class="{ active: activeTab == 0 }"
         >
           <h4 class="par">{{$store.state.translations['contacts.paragraph']}}</h4>
           <p class="sub">
@@ -30,8 +29,8 @@
             <div class="item">
               <div class="name"><call-icon /> {{$store.state.translations['contacts.number']}}</div>
               <div class="body">
-                <a href="">{{ item.email }}</a>
-                <a href="" v-for="number in item.phone_numbers" :key="number">
+                <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+                <a :href="`tel:${number}`" v-for="number in item.phone_numbers" :key="number">
                   {{ number }}
                 </a>
               </div>
@@ -41,7 +40,7 @@
               <div class="name"><map-icon /> {{$store.state.translations['contacts.address']}}</div>
               <div class="body">
                 <p>
-                  {{ item.address }}
+                  {{ item.adresses[0]?.address }}
                 </p>
               </div>
             </div>
@@ -58,14 +57,14 @@
                     <instagram-icon />
                   </a>
                   <a
-                    :href="item.social_networks[1].link"
+                    :href="item.social_networks[2].link"
                     class="soc"
                     target="_blank"
                   >
                     <facebook-icon
                   /></a>
                   <a
-                    :href="item.social_networks[2].link"
+                    :href="item.social_networks[1].link"
                     class="soc"
                     target="_blank"
                   >
@@ -77,6 +76,132 @@
           </div>
 
           <div class="map" v-html="item.map_iframe"></div>
+        </div>
+        <div
+          class="tab"
+          :class="{ active: activeTab == 1 }"
+        >
+          <h4 class="par">{{$store.state.translations['contacts.filial_1']}}</h4>
+          <p class="sub">
+            {{$store.state.translations['contacts.sub_paragraph']}}
+          </p>
+
+          <div class="items">
+            <div class="item">
+              <div class="name"><call-icon /> {{$store.state.translations['contacts.number']}}</div>
+              <div class="body">
+                <a :href="`mailto:${$store.state.translations['contacts.email_1']}`">{{ $store.state.translations['contacts.email_1'] }}</a>
+                <a :href="`tel:${$store.state.translations['contacts.phone_1']}`">
+                  {{ $store.state.translations['contacts.phone_1'] }}
+                </a>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="name"><map-icon /> {{$store.state.translations['contacts.address']}}</div>
+              <div class="body">
+                <p>
+                  {{ $store.state.translations['contacts.address_1'] }}
+                </p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="name"><socials-icon /> {{$store.state.translations['contacts.social']}}</div>
+              <div class="body">
+                <div class="socs">
+                  <a
+                    :href="$store.state.translations['contacts.social_links_1'].split(',')[0]"
+                    class="soc"
+                    target="_blank"
+                  >
+                    <instagram-icon />
+                  </a>
+                  <a
+                    :href="$store.state.translations['contacts.social_links_1'].split(',')[1]"
+                    class="soc"
+                    target="_blank"
+                  >
+                    <facebook-icon
+                  /></a>
+                  <a
+                    :href="$store.state.translations['contacts.social_links_1'].split(',')[2]"
+                    class="soc"
+                    target="_blank"
+                  >
+                    <telegram-icon />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map">
+            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=moscow,%20domodedovo+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps systems</a></iframe>
+          </div>
+        </div>
+        <div
+          class="tab"
+          :class="{ active: activeTab == 1 }"
+        >
+          <h4 class="par">{{$store.state.translations['contacts.filial_2']}}</h4>
+          <p class="sub">
+            {{$store.state.translations['contacts.sub_paragraph']}}
+          </p>
+
+          <div class="items">
+            <div class="item">
+              <div class="name"><call-icon /> {{$store.state.translations['contacts.number']}}</div>
+              <div class="body">
+                <a :href="`mailto:${$store.state.translations['contacts.email_2']}`">{{ $store.state.translations['contacts.email_2'] }}</a>
+                <a :href="`tel:${$store.state.translations['contacts.phone_2']}`">
+                  {{ $store.state.translations['contacts.phone_2'] }}
+                </a>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="name"><map-icon /> {{$store.state.translations['contacts.address']}}</div>
+              <div class="body">
+                <p>
+                  {{ $store.state.translations['contacts.address_2'] }}
+                </p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="name"><socials-icon /> {{$store.state.translations['contacts.social']}}</div>
+              <div class="body">
+                <div class="socs">
+                  <a
+                    :href="$store.state.translations['contacts.social_links_2'].split(',')[0]"
+                    class="soc"
+                    target="_blank"
+                  >
+                    <instagram-icon />
+                  </a>
+                  <a
+                    :href="$store.state.translations['contacts.social_links_2'].split(',')[1]"
+                    class="soc"
+                    target="_blank"
+                  >
+                    <facebook-icon
+                  /></a>
+                  <a
+                    :href="$store.state.translations['contacts.social_links_2'].split(',')[2]"
+                    class="soc"
+                    target="_blank"
+                  >
+                    <telegram-icon />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map">
+            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=moscow,%20domodedovo+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps systems</a></iframe>
+          </div>
         </div>
       </div>
     </div>
