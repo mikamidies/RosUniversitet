@@ -5,7 +5,7 @@
 
       <div class="buttons">
         <button
-          v-for="(button, index) in [{ country: $store.state.translations['countries.uz'] }, { country: $store.state.translations['countries.ru'] }]"
+          v-for="(button, index) in [...contacts.map(el => { return {country: el.country} }), { country: $store.state.translations['countries.ru'] }]"
           :key="index"
           @click="activeTab = index"
           :class="{ active: activeTab == index }"
@@ -18,7 +18,7 @@
           class="tab"
           v-for="(item, index) in contacts"
           :key="index"
-          :class="{ active: activeTab == 0 }"
+          :class="{ active: activeTab == index }"
         >
           <h4 class="par">{{$store.state.translations['contacts.paragraph']}}</h4>
           <p class="sub">
@@ -29,8 +29,8 @@
             <div class="item">
               <div class="name"><call-icon /> {{$store.state.translations['contacts.number']}}</div>
               <div class="body">
-                <a :href="`mailto:${item.email}`">{{ item.email }}</a>
-                <a :href="`tel:${number}`" v-for="number in item.phone_numbers" :key="number">
+                <a :href="`mailto:${item?.email}`">{{ item?.email }}</a>
+                <a :href="`tel:${number}`" v-for="number in item?.phone_numbers" :key="number">
                   {{ number }}
                 </a>
               </div>
@@ -50,21 +50,21 @@
               <div class="body">
                 <div class="socs">
                   <a
-                    :href="item.social_networks[0].link"
+                    :href="item?.social_networks[0]?.link"
                     class="soc"
                     target="_blank"
                   >
                     <instagram-icon />
                   </a>
                   <a
-                    :href="item.social_networks[2].link"
+                    :href="item?.social_networks[2]?.link"
                     class="soc"
                     target="_blank"
                   >
                     <facebook-icon
                   /></a>
                   <a
-                    :href="item.social_networks[1].link"
+                    :href="item?.social_networks[1]?.link"
                     class="soc"
                     target="_blank"
                   >
@@ -75,11 +75,11 @@
             </div>
           </div>
 
-          <div class="map" v-html="item.map_iframe"></div>
+          <div class="map" v-html="item?.map_iframe"></div>
         </div>
         <div
           class="tab"
-          :class="{ active: activeTab == 1 }"
+          :class="{ active: activeTab == contacts.length }"
         >
           <h4 class="par">{{$store.state.translations['contacts.filial_1']}}</h4>
           <p class="sub">
@@ -142,7 +142,7 @@
         </div>
         <div
           class="tab"
-          :class="{ active: activeTab == 1 }"
+          :class="{ active: activeTab == contacts.length }"
         >
           <h4 class="par">{{$store.state.translations['contacts.filial_2']}}</h4>
           <p class="sub">
@@ -198,7 +198,6 @@
               </div>
             </div>
           </div>
-
           <div class="map">
             <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=moscow,%20domodedovo+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps systems</a></iframe>
           </div>
