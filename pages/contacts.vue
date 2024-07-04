@@ -137,7 +137,7 @@
           </div>
 
           <div class="map">
-            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=moscow,%20domodedovo+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps systems</a></iframe>
+            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d4509.170435324759!2d37.499438!3d55.591828!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTXCsDM1JzMwLjYiTiAzN8KwMjknNTguMCJF!5e0!3m2!1sen!2s!4v1720097354894!5m2!1sen!2s"></iframe>
           </div>
         </div>
         <div
@@ -199,7 +199,7 @@
             </div>
           </div>
           <div class="map">
-            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=moscow,%20domodedovo+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps systems</a></iframe>
+            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d3998.216128182412!2d30.360562!3d59.93034900000001!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTnCsDU1JzQ5LjMiTiAzMMKwMjEnMzguMCJF!5e0!3m2!1sen!2s!4v1720097820736!5m2!1sen!2s"></iframe>
           </div>
         </div>
       </div>
@@ -216,6 +216,7 @@ import FacebookIcon from "~/components/SvgIcons/FacebookIcon.vue";
 import TelegramIcon from "~/components/SvgIcons/TelegramIcon.vue";
 
 import contactsApi from "@/api/contacts.js";
+import contacts from "@/api/contacts.js";
 
 export default {
   layout: "inner",

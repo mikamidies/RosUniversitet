@@ -69,6 +69,10 @@ export default {
   border-bottom: 1px solid #d7d7dd;
 }
 
+:deep(.accordion__item):last-child {
+  border-bottom: none;
+}
+
 :deep(.accordion__trigger_active) {
   margin-bottom: 16px;
 }

@@ -31,7 +31,7 @@ export default {
         "Accept-Language": this.$i18n.locale,
       },
     });
-   this.$store.commit('getSiteInfo',contacts[0])
+    this.$store.commit('getSiteInfo',contacts[0])
     this.$store.commit("getTranslations", translations.data);
   },
   watch: {

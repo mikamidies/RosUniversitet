@@ -1,29 +1,36 @@
 <template>
   <div class="wrap" id="navbar">
     <div class="container">
-
       <div class="left">
         <ul class="links">
           <li>
-            <NuxtLink :to="localePath('/')">{{$store.state.translations['main.home']}}</NuxtLink>
+            <NuxtLink :to="localePath('/')">{{
+              $store.state.translations["main.home"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/about')">{{$store.state.translations['main.about']}}</NuxtLink>
+            <NuxtLink :to="localePath('/about')">{{
+              $store.state.translations["main.about"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/universities')"
-              >{{$store.state.translations['main.universitetsSpec']}}</NuxtLink
-            >
+            <NuxtLink :to="localePath('/universities')">{{
+              $store.state.translations["main.universitetsSpec"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/services')">{{$store.state.translations['main.services']}}</NuxtLink>
+            <NuxtLink :to="localePath('/services')">{{
+              $store.state.translations["main.services"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/contacts')">{{$store.state.translations['main.contact']}}</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">{{
+              $store.state.translations["main.contact"]
+            }}</NuxtLink>
           </li>
           <li class="modaller">
             <button class="caller" @click="modalHandle = !modalHandle">
-              {{$store.state.translations['main.base']}} <chevron-down />
+              {{ $store.state.translations["main.base"] }} <chevron-down />
             </button>
 
             <div class="modal" :class="{ show: modalHandle == true }">
@@ -31,7 +38,9 @@
               <div class="container">
                 <div class="body">
                   <div class="up">
-                    <h4 class="par">{{$store.state.translations['main.base']}}</h4>
+                    <h4 class="par">
+                      {{ $store.state.translations["main.base"] }}
+                    </h4>
                   </div>
                   <div class="down">
                     <div class="buttons">
@@ -42,6 +51,9 @@
                         :class="{ active: handleTab == index }"
                       >
                         {{ item?.title }}
+                      </button>
+                      <button @click="localePath('/faq') === $route.path ? modalHandle = false : $router.push(localePath('/faq'))">
+                        {{ $store.state.translations['main.faq-title'] }}
                       </button>
                     </div>
                     <div class="board">
@@ -56,7 +68,10 @@
                           v-for="card in cards?.contents"
                           :key="card?.id"
                         >
-                          <NuxtLink @click="modalHandle = false" :to="localePath(`/base/${card?.id}`)">
+                          <NuxtLink
+                            @click="modalHandle = false"
+                            :to="localePath(`/base/${card?.id}`)"
+                          >
                             <img :src="card?.image" alt="" class="pic" />
                             <p class="naming">
                               <star-icon />
@@ -74,7 +89,36 @@
         </ul>
       </div>
       <div class="right">
-        <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a>
+        <div class="lang">
+          <a-dropdown>
+            <a-menu slot="overlay">
+              <a-menu-item v-if="$i18n.locale !== 'ru'" :key="1">
+                <img :src="`/ru.svg`" :alt="$i18n.locale" />
+                <a
+                  target="_blank"
+                  :href="`tel:${$store.state.translations['contacts.phone_ru']}`"
+                  >{{ $store.state.translations["contacts.phone_ru"] }}</a
+                >
+              </a-menu-item>
+              <a-menu-item v-if="$i18n.locale !== 'uz'" :key="2">
+                <img :src="`/uz.svg`" :alt="$i18n.locale" />
+                <a
+                  target="_blank"
+                  :href="`tel:${$store.state.translations['contacts.phone_uz']}`"
+                  >{{ $store.state.translations["contacts.phone_uz"] }}</a
+                >
+              </a-menu-item>
+            </a-menu>
+            <a-button style="margin-left: 8px">
+              <img :src="`/${$i18n.locale}.svg`" :alt="$i18n.locale" />
+              <p class="langer">
+                {{ $store.state.translations["contacts.phone_number"] }}
+              </p>
+              <a-icon type="down" />
+            </a-button>
+          </a-dropdown>
+        </div>
+        <!-- <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a> -->
         <div class="stick"></div>
         <div class="lang">
           <a-dropdown>
@@ -99,8 +143,8 @@
         </div>
       </div>
       <div @click="localePath('/')" class="logo">
-        <img src="~/assets/img/logo/logo.png" alt="logo">
-        <img src="~/assets/img/build.png" alt="logo">
+        <img src="~/assets/img/logo/logo.png" alt="logo" />
+        <img src="~/assets/img/build.png" alt="logo" />
       </div>
       <div class="burger">
         <input v-model="burgerToggle" type="checkbox" id="checkbox" />
@@ -115,21 +159,29 @@
       <div v-if="burgerToggle" class="sidebar">
         <ul class="links">
           <li>
-            <NuxtLink :to="localePath('/')">{{$store.state.translations['main.home']}}</NuxtLink>
+            <NuxtLink :to="localePath('/')">{{
+              $store.state.translations["main.home"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/about')">{{$store.state.translations['main.about']}}</NuxtLink>
+            <NuxtLink :to="localePath('/about')">{{
+              $store.state.translations["main.about"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/universities')"
-              >{{$store.state.translations['main.universitetsSpec']}}</NuxtLink
-            >
+            <NuxtLink :to="localePath('/universities')">{{
+              $store.state.translations["main.universitetsSpec"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/services')">{{$store.state.translations['main.services']}}</NuxtLink>
+            <NuxtLink :to="localePath('/services')">{{
+              $store.state.translations["main.services"]
+            }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath('/contacts')">{{$store.state.translations['main.contact']}}</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')">{{
+              $store.state.translations["main.contact"]
+            }}</NuxtLink>
           </li>
           <!-- <li>
             <a-dropdown>
@@ -147,7 +199,12 @@
             </a-dropdown>
           </li> -->
         </ul>
-        <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a>
+        <a
+          v-if="$store.state.siteInfo['phone_numbers']"
+          :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`"
+          class="num"
+          >{{ $store.state.siteInfo["phone_numbers"][0] }}</a
+        >
         <!-- <div class="lang">
           <a-dropdown>
             <a-menu slot="overlay">
@@ -182,7 +239,7 @@ export default {
       burgerToggle: false,
       modalHandle: false,
       item: "",
-      scrolled: false
+      scrolled: false,
     };
   },
 
@@ -204,7 +261,7 @@ export default {
   watch: {
     $route: function () {
       this.burgerToggle = false;
-      this.modalHandle = false
+      this.modalHandle = false;
     },
   },
 };
@@ -384,7 +441,7 @@ export default {
 }
 .buttons button {
   color: var(--grey-64, #5d5d5f);
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 25.2px */
@@ -459,7 +516,6 @@ export default {
   display: none;
 }
 
-
 .scroll .logo img:first-child {
   display: block;
 }
@@ -472,7 +528,8 @@ export default {
   width: 120px;
 }
 
-.burger, .logo {
+.burger,
+.logo {
   display: none;
 }
 
@@ -604,10 +661,11 @@ export default {
     padding: 24px;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row
+    flex-direction: row;
   }
 
-  .burger, .logo {
+  .burger,
+  .logo {
     display: block;
   }
 
