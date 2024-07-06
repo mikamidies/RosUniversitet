@@ -44,14 +44,6 @@
                   </div>
                   <div class="down">
                     <div class="buttons">
-                      <button
-                        @click="handleTab = index"
-                        v-for="(item, index) in bases"
-                        :key="item?.id"
-                        :class="{ active: handleTab == index }"
-                      >
-                        {{ item?.title }}
-                      </button>
                       <button :class="{ active: localePath('/faq') === $route.path}" @click="localePath('/faq') === $route.path ? modalHandle = false : $router.push(localePath('/faq'))">
                         {{ $store.state.translations['main.faq-title'] }}
                       </button>
@@ -63,29 +55,7 @@
                       </button>
                     </div>
                     <div class="board">
-                      <div
-                        class="items"
-                        :class="{ active: handleTab == index }"
-                        v-for="(cards, index) in bases"
-                        :key="cards?.id"
-                      >
-                        <div
-                          class="item"
-                          v-for="card in cards?.contents"
-                          :key="card?.id"
-                        >
-                          <NuxtLink
-                            @click="modalHandle = false"
-                            :to="localePath(`/base/${card?.id}`)"
-                          >
-                            <img :src="card?.image" alt="" class="pic" />
-                            <p class="naming">
-                              <star-icon />
-                              {{ card?.title }}
-                            </p>
-                          </NuxtLink>
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -189,21 +159,6 @@
               $store.state.translations["main.contact"]
             }}</NuxtLink>
           </li>
-          <!-- <li>
-            <a-dropdown>
-              <a-menu slot="overlay">
-                <a-menu-item key="1">
-                  <NuxtLink to="/base/slug">Base 1</NuxtLink>
-                </a-menu-item>
-                <a-menu-item key="2">
-                  <NuxtLink to="/base/slug">Base 2</NuxtLink>
-                </a-menu-item>
-              </a-menu>
-              <a-button style="margin-left: 8px">
-                {{$store.state.translations['main.base']}} <a-icon type="down" />
-              </a-button>
-            </a-dropdown>
-          </li> -->
         </ul>
         <a
           v-if="$store.state.siteInfo['phone_numbers']"
@@ -211,17 +166,6 @@
           class="num"
           >{{ $store.state.siteInfo["phone_numbers"][0] }}</a
         >
-        <!-- <div class="lang">
-          <a-dropdown>
-            <a-menu slot="overlay">
-              <a-menu-item key="1"> 1st menu item </a-menu-item>
-              <a-menu-item key="2"> 2nd menu item </a-menu-item>
-            </a-menu>
-            <a-button style="margin-left: 8px">
-              Русский <a-icon type="down" />
-            </a-button>
-          </a-dropdown>
-        </div> -->
       </div>
     </transition>
   </div>
@@ -229,7 +173,6 @@
 
 <script>
 import ChevronDown from "./SvgIcons/ChevronDown.vue";
-import baseApi from "@/api/base.js";
 import StarIcon from "./SvgIcons/StarIcon.vue";
 
 export default {
@@ -240,17 +183,12 @@ export default {
 
   data() {
     return {
-      bases: [],
       handleTab: 0,
       burgerToggle: false,
       modalHandle: false,
       item: "",
       scrolled: false,
     };
-  },
-
-  async fetch() {
-    this.bases = await baseApi.getBases(this.$axios);
   },
 
   async mounted() {
@@ -445,7 +383,14 @@ export default {
   grid-template-columns: 206px 1fr;
   gap: 40px;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 .buttons button {
+  width: fit-content;
   color: var(--grey-64, #5d5d5f);
   font-size: 16px;
   font-style: normal;

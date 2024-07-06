@@ -42,21 +42,6 @@
         <li>
           <div class="stick"></div>
         </li>
-        <!-- <li>
-          <a-dropdown>
-            <a-menu slot="overlay">
-              <a-menu-item key="1">
-                <NuxtLink to="/base/id">Base 1</NuxtLink>
-              </a-menu-item>
-              <a-menu-item key="2">
-                <NuxtLink to="/base/id">Base 2</NuxtLink>
-              </a-menu-item>
-            </a-menu>
-            <a-button style="margin-left: 8px">
-              База знаний <a-icon type="down" />
-            </a-button>
-          </a-dropdown>
-        </li> -->
       </ul>
       <div class="logo">
         <img src="@/assets/img/build.png" alt="" />
@@ -64,34 +49,52 @@
       <div class="contacts">
         <div class="item">
           <p class="sup">{{ $store.state.translations["contacts.address"] }}</p>
-          <p class="value">
-          {{contacts?.address}}
+          <p style="margin-bottom: 8px" v-if="$i18n.locale !== 'ru'" v-for="(adress, idx) in contacts?.adresses" :key="idx" class="value">
+            {{ adress.address }}
+          </p>
+          <p style="margin-bottom: 8px" v-if="$i18n.locale !== 'uz'" class="value">
+            {{ $store.state.translations["contacts.address_1"] }}
+          </p>
+          <p v-if="$i18n.locale !== 'uz'" class="value">
+            {{ $store.state.translations["contacts.address_2"] }}
           </p>
         </div>
         <div class="item">
           <p class="sup">{{ $store.state.translations["contacts.number"] }}</p>
-          <p class="value">
-          <span v-for="number in contacts?.phone_numbers">
-            {{number}} <br />
-          </span>
+          <p v-if="$i18n.locale !== 'uz'">
+            {{ $store.state.translations["contacts.phone_ru"] }}
+          </p>
+          <p v-if="$i18n.locale !== 'ru'">
+            {{ $store.state.translations["contacts.phone_uz"] }}
           </p>
         </div>
         <div class="item">
-          <p class="sup">{{$store.state.translations["contacts.email"]}}</p>
-          <a :href="`mailto:${contacts?.email}`" class="value">{{contacts?.email}}</a>
+          <p class="sup">{{ $store.state.translations["contacts.email"] }}</p>
+          <a :href="`mailto:${$store.state.translations['contacts.footer_email']}`" class="value">{{
+            $store.state.translations['contacts.footer_email']
+          }}</a>
         </div>
         <div class="item">
           <p class="sup">{{ $store.state.translations["contacts.social"] }}</p>
           <div class="socs">
-            <a v-for="(messanger,index) in contacts?.social_networks" :href="messanger?.link" class="soc" target="_blank"> 
-            <instagram-icon v-if="messanger.network == 'ig'"/>
-            <facebook-icon v-if="messanger.network == 'fb'"/> 
-            <telegram-icon v-if="messanger.network == 'tg'"/></a>
+            <a
+              v-for="(messanger, index) in contacts?.social_networks"
+              :href="messanger?.link"
+              class="soc"
+              target="_blank"
+            >
+              <instagram-icon v-if="messanger.network == 'ig'" />
+              <facebook-icon v-if="messanger.network == 'fb'" />
+              <telegram-icon v-if="messanger.network == 'tg'"
+            /></a>
           </div>
         </div>
       </div>
       <div class="bottom">
-        <p>{{year.getFullYear()}} RosUniversitet @ {{$store.state.translations["main.footer-text"]}}</p>
+        <p>
+          {{ year.getFullYear() }} RosUniversitet @
+          {{ $store.state.translations["main.footer-text"] }}
+        </p>
         <p>by <a href="https://ndc.uz" target="_blank">NDC</a></p>
       </div>
     </div>
@@ -107,8 +110,8 @@ export default {
   data() {
     return {
       contacts: {},
-      year: new Date()
-    }
+      year: new Date(),
+    };
   },
   async mounted() {
     const contacts = await contactsApi.getContacts(this.$axios, {
@@ -117,8 +120,8 @@ export default {
         "Accept-Language": this.$i18n.locale,
       },
     });
-   this.$store.commit('getSiteInfo',contacts[0])
-   this.contacts = contacts[0]
+    this.$store.commit("getSiteInfo", contacts[0]);
+    this.contacts = contacts[0];
   },
   components: { InstagramIcon, TelegramIcon, FacebookIcon },
 };

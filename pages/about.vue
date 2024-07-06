@@ -33,7 +33,7 @@
       </div>
     </div>
     <AboutStages :faq="faq" />
-    <AboutMap :roadmap="roadmap" />
+    <!-- <AboutMap :roadmap="roadmap" /> -->
 
     <AppForm />
     <HomeExperts :experts="experts" class="white" />
