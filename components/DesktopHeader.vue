@@ -52,8 +52,14 @@
                       >
                         {{ item?.title }}
                       </button>
-                      <button @click="localePath('/faq') === $route.path ? modalHandle = false : $router.push(localePath('/faq'))">
+                      <button :class="{ active: localePath('/faq') === $route.path}" @click="localePath('/faq') === $route.path ? modalHandle = false : $router.push(localePath('/faq'))">
                         {{ $store.state.translations['main.faq-title'] }}
+                      </button>
+                      <button :class="{ active: localePath('/education') === $route.path}" @click="localePath('/education') === $route.path ? modalHandle = false : $router.push(localePath('/education'))">
+                        {{ $store.state.translations['base.education'] }}
+                      </button>
+                      <button :class="{ active: localePath('/student') === $route.path}" @click="localePath('/student') === $route.path ? modalHandle = false : $router.push(localePath('/student'))">
+                        {{ $store.state.translations['base.become_student'] }}
                       </button>
                     </div>
                     <div class="board">
@@ -93,7 +99,7 @@
           <a-dropdown>
             <a-menu slot="overlay">
               <a-menu-item v-if="$i18n.locale !== 'ru'" :key="1">
-                <img :src="`/ru.svg`" :alt="$i18n.locale" />
+                <img style="object-fit: contain;" :src="`/ru.svg`" :alt="$i18n.locale" />
                 <a
                   target="_blank"
                   :href="`tel:${$store.state.translations['contacts.phone_ru']}`"
@@ -101,7 +107,7 @@
                 >
               </a-menu-item>
               <a-menu-item v-if="$i18n.locale !== 'uz'" :key="2">
-                <img :src="`/uz.svg`" :alt="$i18n.locale" />
+                <img style="object-fit: contain;" :src="`/uz.svg`" :alt="$i18n.locale" />
                 <a
                   target="_blank"
                   :href="`tel:${$store.state.translations['contacts.phone_uz']}`"
@@ -142,7 +148,7 @@
           </a-dropdown>
         </div>
       </div>
-      <div @click="localePath('/')" class="logo">
+      <div @click="$router.push(localePath('/'))" class="logo">
         <img src="~/assets/img/logo/logo.png" alt="logo" />
         <img src="~/assets/img/build.png" alt="logo" />
       </div>
