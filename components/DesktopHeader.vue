@@ -458,6 +458,7 @@ export default {
   z-index: 1;
 }
 .body {
+  margin: 0 auto;
   border-radius: 12px;
   background: var(--White, #fff);
   width: fit-content;
@@ -686,6 +687,10 @@ export default {
     flex-direction: column;
     gap: 24px;
   }
+
+  .body {
+    margin-right: 50px;
+  }
 }
 
 /**************************/
@@ -696,6 +701,9 @@ export default {
   .links a,
   .num {
     font-size: 14px;
+  }
+  .body {
+    margin-right: 0px;
   }
 }
 
