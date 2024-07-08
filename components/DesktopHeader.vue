@@ -679,6 +679,16 @@ export default {
 }
 
 /**************************/
+/* BELOW 1344px (Smaller desktops) */
+/**************************/
+
+@media (max-width: 84em) {
+  .body {
+    margin-right: 350px;
+  }
+}
+
+/**************************/
 /* BELOW 1200px (Landscape Tablets) */
 /**************************/
 
@@ -703,7 +713,7 @@ export default {
     font-size: 14px;
   }
   .body {
-    margin-right: 0px;
+    margin-right: 10px;
   }
 }
 
