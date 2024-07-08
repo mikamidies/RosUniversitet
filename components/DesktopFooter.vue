@@ -42,6 +42,25 @@
         <li>
           <div class="stick"></div>
         </li>
+        <li>
+          <a-dropdown placement="bottomCenter">
+            <a-menu slot="overlay">
+              <a-menu-item @click="$router.push(localePath('/faq'))">
+                {{ $store.state.translations["main.faq-title"] }}
+              </a-menu-item>
+              <a-menu-item @click="$router.push(localePath('/education'))">
+                {{ $store.state.translations["base.education"] }}
+              </a-menu-item>
+              <a-menu-item @click="$router.push(localePath('/student'))">
+                {{ $store.state.translations["base.become_student"] }}
+              </a-menu-item>
+            </a-menu>
+            <a-button style="margin-left: 8px">
+              {{ $store.state.translations["main.base"] }}
+              <a-icon type="down" />
+            </a-button>
+          </a-dropdown>
+        </li>
       </ul>
       <div class="logo">
         <img src="@/assets/img/build.png" alt="" />
@@ -49,10 +68,20 @@
       <div class="contacts">
         <div class="item">
           <p class="sup">{{ $store.state.translations["contacts.address"] }}</p>
-          <p style="margin-bottom: 8px" v-if="$i18n.locale !== 'ru'" v-for="(adress, idx) in contacts?.adresses" :key="idx" class="value">
+          <p
+            style="margin-bottom: 8px"
+            v-if="$i18n.locale !== 'ru'"
+            v-for="(adress, idx) in contacts?.adresses"
+            :key="idx"
+            class="value"
+          >
             {{ adress.address }}
           </p>
-          <p style="margin-bottom: 8px" v-if="$i18n.locale !== 'uz'" class="value">
+          <p
+            style="margin-bottom: 8px"
+            v-if="$i18n.locale !== 'uz'"
+            class="value"
+          >
             {{ $store.state.translations["contacts.address_1"] }}
           </p>
           <p v-if="$i18n.locale !== 'uz'" class="value">
@@ -70,9 +99,11 @@
         </div>
         <div class="item">
           <p class="sup">{{ $store.state.translations["contacts.email"] }}</p>
-          <a :href="`mailto:${$store.state.translations['contacts.footer_email']}`" class="value">{{
-            $store.state.translations['contacts.footer_email']
-          }}</a>
+          <a
+            :href="`mailto:${$store.state.translations['contacts.footer_email']}`"
+            class="value"
+            >{{ $store.state.translations["contacts.footer_email"] }}</a
+          >
         </div>
         <div class="item">
           <p class="sup">{{ $store.state.translations["contacts.social"] }}</p>
@@ -92,7 +123,7 @@
       </div>
       <div class="bottom">
         <p>
-          {{ year.getFullYear() }} RosUniversitet @
+          {{ $store.state.translations["main.footer_year"] }} RosUniversitet @
           {{ $store.state.translations["main.footer-text"] }}
         </p>
         <p>by <a href="https://ndc.uz" target="_blank">NDC</a></p>
@@ -110,7 +141,6 @@ export default {
   data() {
     return {
       contacts: {},
-      year: new Date(),
     };
   },
   async mounted() {
@@ -140,6 +170,9 @@ export default {
   padding: 40px 0 20px 0;
   max-width: 936px;
   margin: 0 auto;
+}
+.links li {
+  flex-shrink: 0;
 }
 .links a {
   color: var(--White, #fff);
