@@ -94,7 +94,7 @@ export default {
 }
 
 .swiper-slide {
-  transform: scale(0.6);
+  transform: scale(0.6) !important;
   opacity: 0.5;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -114,8 +114,8 @@ export default {
   object-fit: cover;
 }
 
-.swiper-slide-next {
-  transform: scale(1);
+.swiper-slide.swiper-slide-next {
+  transform: scale(1) !important;
   opacity: 1;
 }
 
@@ -157,7 +157,7 @@ export default {
   }
 
   .swiper-slide {
-    transform: scale(1);
+    transform: scale(1) !important;
     opacity: 1;
   }
 
