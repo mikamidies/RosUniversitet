@@ -2,36 +2,43 @@
   <div class="master">
     <div class="container">
       <h4 class="heading">
-        {{$store.state.translations['main.title']}} <br />
-        {{$store.state.translations['about.heading']}}
+        {{ $store.state.translations["main.title"] }} <br />
+        {{ $store.state.translations["about.heading"] }}
       </h4>
 
       <div class="cover">
-        <img src="@/assets/img/about.jpg" alt="" />
+        <img :src="`https://admin.rosuniversitet.ru${mainInfo.image}`" :alt="mainInfo.title" />
       </div>
 
       <div class="content">
         <div class="left">
-          <h4 class="par">  {{$store.state.translations['about.paragraph']}}</h4>
-          <div class="card" v-html="mainInfo?.description">
-          </div>
+          <h4 class="par">
+            {{ $store.state.translations["about.paragraph"] }}
+          </h4>
+          <div class="card" v-html="mainInfo?.description"></div>
         </div>
 
         <div class="right">
-          <h4 class="par">{{$store.state.translations['about.statistics']}}</h4>
+          <h4 class="par">
+            {{ $store.state.translations["about.statistics"] }}
+          </h4>
           <div class="card">
-            <div class="item" v-for="statistic in mainInfo?.statistics" :key="statistic?.id">
+            <div
+              class="item"
+              v-for="statistic in mainInfo?.statistics"
+              :key="statistic?.id"
+            >
               <p class="num">
                 <star-icon />
                 {{ statistic?.value }}
               </p>
               <p class="sub">{{ statistic?.title }}</p>
             </div>
-
           </div>
         </div>
       </div>
     </div>
+    <Certificates :certificates="certificates" />
     <AboutStages :faq="faq" />
     <!-- <AboutMap :roadmap="roadmap" /> -->
 
@@ -46,22 +53,16 @@ import AboutStages from "~/components/AboutPage/AboutStages.vue";
 import AppForm from "~/components/AppForm.vue";
 import HomeExperts from "~/components/HomePage/HomeExperts.vue";
 import StarIcon from "~/components/SvgIcons/StarIcon.vue";
+import Certificates from "~/components/Certificates.vue";
 
+import certificateApi from "@/api/certificate.js";
 import aboutApi from "@/api/about.js";
 import expertsApi from "@/api/experts.js";
 
 export default {
-  components: { StarIcon, AboutStages, AboutMap, AppForm, HomeExperts },
+  components: { StarIcon, AboutStages, AboutMap, AppForm, HomeExperts, Certificates },
 
   layout: "inner",
-async mounted() {
-  const mainInfo = await aboutApi.getMainInfo(this.$axios, {
-      params: this.$route.query,
-      headers: {
-        "Accept-Language": this.$i18n.locale,
-      },
-    });
-},
   async asyncData({ $axios, query, i18n }) {
     const faq = await aboutApi.getFaq($axios, {
       params: query,
@@ -69,12 +70,12 @@ async mounted() {
         "Accept-Language": i18n.locale,
       },
     });
-    const roadmap = await aboutApi.getRoadmap($axios, {
-      params: query,
-      headers: {
-        "Accept-Language": i18n.locale,
-      },
-    });
+    // const roadmap = await aboutApi.getRoadmap($axios, {
+    //   params: query,
+    //   headers: {
+    //     "Accept-Language": i18n.locale,
+    //   },
+    // });
     const experts = await expertsApi.getExperts($axios, {
       params: query,
       headers: {
@@ -87,12 +88,17 @@ async mounted() {
         "Accept-Language": i18n.locale,
       },
     });
-    
+    const certificates = await certificateApi.getCertificate($axios, {
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
+    });
+
     return {
       mainInfo,
       faq,
-      roadmap,
       experts,
+      certificates,
     };
   },
 };
@@ -110,7 +116,8 @@ async mounted() {
 
 .cover img {
   width: 100%;
-  height: 720px;
+  /* height: 720px; */
+  max-height: 1000px;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -248,9 +255,9 @@ async mounted() {
     line-height: 130%;
   }
 
-  .cover img {
+  /* .cover img {
     height: 400px;
-  }
+  } */
 
   .card .item {
     /* justify-self: center; */

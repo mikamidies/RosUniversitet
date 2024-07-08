@@ -466,6 +466,18 @@ iframe {
     margin-top: 8px;
   }
 
+  .name {
+    font-size: 14px;
+  }
+
+  .txt {
+    font-size: 12px;
+  }
+
+  .top {
+    flex-direction: column;
+  }
+
   .buttons {
     flex-direction: column;
     width: 300px;

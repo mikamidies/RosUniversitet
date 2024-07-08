@@ -2,6 +2,7 @@
   <div class="master">
     <HomeHero :videoUrl="video.media_url" />
     <HomeStages />
+    <Certificates :certificates="certificates" />
     <AppForm class="whiteApp" />
     <HomeServices :services="services" />
     <HomeStudients :students="students" />
@@ -18,13 +19,16 @@ import HomeHero from "~/components/HomePage/HomeHero.vue";
 import HomeServices from "~/components/HomePage/HomeServices.vue";
 import HomeSpecialties from "~/components/HomePage/HomeSpecialties.vue";
 import HomeStudients from "~/components/HomePage/HomeStudients.vue";
+import Certificates from "~/components/Certificates.vue";
+import HomeStages from "~/components/HomePage/HomeStages.vue";
 
 import univerApi from "@/api/univers.js";
 import videoApi from "@/api/video.js";
 import studentsApi from "@/api/students.js";
 import expertsApi from "@/api/experts.js";
 import servicesApi from "@/api/services.js";
-import HomeStages from "~/components/HomePage/HomeStages.vue";
+import certificateApi from "@/api/certificate.js";
+
 
 export default {
   components: {
@@ -35,10 +39,11 @@ export default {
     AppForm,
     HomeExperts,
     HomeStages,
+    Certificates
   },
 
   async asyncData({ $axios, query, i18n }) {
-    const [univers,students,experts,services,video] = await Promise.all([
+    const [univers,students,experts,services,video,certificates] = await Promise.all([
       univerApi.getUnivers($axios, {
       params: query,
       headers: {
@@ -67,6 +72,11 @@ export default {
       headers: {
         "Accept-Language": i18n.locale,
       },
+    }),
+    certificateApi.getCertificate($axios, {
+      headers: {
+        "Accept-Language": i18n.locale,
+      },
     })
     ]);
 
@@ -75,7 +85,8 @@ export default {
       students,
       experts,
       services,
-      video
+      video,
+      certificates
     };
   },
 

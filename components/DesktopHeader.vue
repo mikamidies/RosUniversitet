@@ -44,18 +44,40 @@
                   </div>
                   <div class="down">
                     <div class="buttons">
-                      <button :class="{ active: localePath('/faq') === $route.path}" @click="localePath('/faq') === $route.path ? modalHandle = false : $router.push(localePath('/faq'))">
-                        {{ $store.state.translations['main.faq-title'] }}
+                      <button
+                        :class="{ active: localePath('/faq') === $route.path }"
+                        @click="
+                          localePath('/faq') === $route.path
+                            ? (modalHandle = false)
+                            : $router.push(localePath('/faq'))
+                        "
+                      >
+                        {{ $store.state.translations["main.faq-title"] }}
                       </button>
-                      <button :class="{ active: localePath('/education') === $route.path}" @click="localePath('/education') === $route.path ? modalHandle = false : $router.push(localePath('/education'))">
-                        {{ $store.state.translations['base.education'] }}
+                      <button
+                        :class="{
+                          active: localePath('/education') === $route.path,
+                        }"
+                        @click="
+                          localePath('/education') === $route.path
+                            ? (modalHandle = false)
+                            : $router.push(localePath('/education'))
+                        "
+                      >
+                        {{ $store.state.translations["base.education"] }}
                       </button>
-                      <button :class="{ active: localePath('/student') === $route.path}" @click="localePath('/student') === $route.path ? modalHandle = false : $router.push(localePath('/student'))">
-                        {{ $store.state.translations['base.become_student'] }}
+                      <button
+                        :class="{
+                          active: localePath('/student') === $route.path,
+                        }"
+                        @click="
+                          localePath('/student') === $route.path
+                            ? (modalHandle = false)
+                            : $router.push(localePath('/student'))
+                        "
+                      >
+                        {{ $store.state.translations["base.become_student"] }}
                       </button>
-                    </div>
-                    <div class="board">
-                      
                     </div>
                   </div>
                 </div>
@@ -69,7 +91,11 @@
           <a-dropdown>
             <a-menu slot="overlay">
               <a-menu-item v-if="$i18n.locale !== 'ru'" :key="1">
-                <img style="object-fit: contain;" :src="`/ru.svg`" :alt="$i18n.locale" />
+                <img
+                  style="object-fit: contain"
+                  :src="`/ru.svg`"
+                  :alt="$i18n.locale"
+                />
                 <a
                   target="_blank"
                   :href="`tel:${$store.state.translations['contacts.phone_ru']}`"
@@ -77,7 +103,11 @@
                 >
               </a-menu-item>
               <a-menu-item v-if="$i18n.locale !== 'uz'" :key="2">
-                <img style="object-fit: contain;" :src="`/uz.svg`" :alt="$i18n.locale" />
+                <img
+                  style="object-fit: contain"
+                  :src="`/uz.svg`"
+                  :alt="$i18n.locale"
+                />
                 <a
                   target="_blank"
                   :href="`tel:${$store.state.translations['contacts.phone_uz']}`"
@@ -97,7 +127,7 @@
         <!-- <a v-if="$store.state.siteInfo['phone_numbers']" :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`" class="num">{{$store.state.siteInfo['phone_numbers'][0]}}</a> -->
         <div class="stick"></div>
         <div class="lang">
-          <a-dropdown>
+          <a-dropdown placement="bottomCenter">
             <a-menu slot="overlay">
               <a-menu-item key="1">
                 <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
@@ -160,12 +190,83 @@
             }}</NuxtLink>
           </li>
         </ul>
-        <a
-          v-if="$store.state.siteInfo['phone_numbers']"
-          :href="`tel:${$store.state.siteInfo['phone_numbers'][0]}`"
-          class="num"
-          >{{ $store.state.siteInfo["phone_numbers"][0] }}</a
-        >
+        <div class="lang">
+          <a-dropdown placement="bottomCenter">
+            <a-menu slot="overlay">
+              <a-menu-item @click="$router.push(localePath('/faq'))">
+                {{ $store.state.translations["main.faq-title"] }}
+              </a-menu-item>
+              <a-menu-item @click="$router.push(localePath('/education'))">
+                {{ $store.state.translations["base.education"] }}
+              </a-menu-item>
+              <a-menu-item @click="$router.push(localePath('/student'))">
+                {{ $store.state.translations["base.become_student"] }}
+              </a-menu-item>
+            </a-menu>
+            <a-button style="margin-left: 8px">
+              {{ $store.state.translations["main.base"] }}
+              <a-icon type="down" />
+            </a-button>
+          </a-dropdown>
+        </div>
+        <div class="lang">
+          <a-dropdown>
+            <a-menu slot="overlay">
+              <a-menu-item key="1">
+                <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="2">
+                <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
+              </a-menu-item>
+              <a-menu-item key="3">
+                <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
+              </a-menu-item>
+            </a-menu>
+            <a-button style="margin-left: 8px">
+              <p v-if="$i18n.locale == 'ru'" class="langer">Русский</p>
+              <p v-else-if="$i18n.locale == 'en'" class="langer">English</p>
+              <p v-else class="langer">O'zbekcha</p>
+              <a-icon type="down" />
+            </a-button>
+          </a-dropdown>
+        </div>
+        <div class="lang">
+          <a-dropdown>
+            <a-menu slot="overlay">
+              <a-menu-item v-if="$i18n.locale !== 'ru'" :key="1">
+                <img
+                  style="object-fit: contain"
+                  :src="`/ru.svg`"
+                  :alt="$i18n.locale"
+                />
+                <a
+                  target="_blank"
+                  :href="`tel:${$store.state.translations['contacts.phone_ru']}`"
+                  >{{ $store.state.translations["contacts.phone_ru"] }}</a
+                >
+              </a-menu-item>
+              <a-menu-item v-if="$i18n.locale !== 'uz'" :key="2">
+                <img
+                  style="object-fit: contain"
+                  :src="`/uz.svg`"
+                  :alt="$i18n.locale"
+                />
+                <a
+                  target="_blank"
+                  :href="`tel:${$store.state.translations['contacts.phone_uz']}`"
+                  >{{ $store.state.translations["contacts.phone_uz"] }}</a
+                >
+              </a-menu-item>
+            </a-menu>
+            <a-button style="margin-left: 8px">
+              <img :src="`/${$i18n.locale}.svg`" :alt="$i18n.locale" />
+              <p class="langer">
+                {{ $store.state.translations["contacts.phone_number"] }}
+              </p>
+              <a-icon type="down" />
+            </a-button>
+          </a-dropdown>
+        </div>
       </div>
     </transition>
   </div>
@@ -359,7 +460,7 @@ export default {
 .body {
   border-radius: 12px;
   background: var(--White, #fff);
-  width: 100%;
+  width: fit-content;
   box-shadow: 0px 4px 16px rgba(17, 17, 26, 0.05),
     0px 8px 32px rgba(17, 17, 26, 0.05);
   margin-top: 88px;
@@ -410,11 +511,6 @@ export default {
 .buttons button:last-child {
   padding-bottom: 0;
   border-bottom: 0px solid #000;
-}
-.board {
-  border-radius: 8px;
-  background: #f5f5f7;
-  padding: 12px;
 }
 .items {
   display: none;
