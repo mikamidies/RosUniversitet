@@ -10,7 +10,7 @@
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
   },
 
   css: ["ant-design-vue/dist/antd.css", "@/assets/css/main.css"],
