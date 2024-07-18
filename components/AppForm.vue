@@ -22,7 +22,7 @@
             />
             <input
               type="text"
-              v-mask="$i18n.locale === 'uz' ? '+998 ## ### ## ##' : '+####################'"
+              v-mask="'+####################'"
               v-model="form.phone"
               required
               :placeholder="$store.state.translations['main.form-tel']"
